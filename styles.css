@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+body{
+    font-family: Arial, sans-serif; /* Sets a clean, modern font */
+    line-height: 1.6; /* Improves readability */
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+header{
+    
+    background: #35424a; /* Dark gray-blue background */
+    color: #ffffff; /* White text color */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: start;
+    align-items: center;
+    display: flex;
+}
+
+header h1{
+    /* Removes default margin */
+    font-size: em;
+    align-items: start;
+}
+
+header nav{
+    margin-left: 5vh;
+    display: flex;
+    
+}
+
+header nav ul{
+    list-style: none; /* Removes bullet points */
+    display: flex; 
+    align-items: center;
+}
+
+header nav ul li{
+    margin: 0 15px; /* Spacing between menu items */
+}
