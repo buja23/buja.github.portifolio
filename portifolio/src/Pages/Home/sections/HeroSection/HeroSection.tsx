@@ -65,7 +65,8 @@ const HeroSection: React.FC = () => {
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    zIndex: 0
+                    zIndex: 0,
+                    pointerEvents: 'none'
                 }}>
                     <LightRays
                     raysOrigin="top-center"
