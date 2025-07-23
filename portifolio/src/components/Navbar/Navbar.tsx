@@ -7,10 +7,42 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { styled } from '@mui/material';
+import theme from '../../theme';
 
-export const StyledNavLink = styled("a")(() => ({
+export const StyledNavLink = styled("a")(({ theme }) => ({
     textDecoration: "none",
-    color: "inherit"
+    color: "inherit",
+    transition: "color 0.2s, background 0.2s, letter-spacing 0.3s",
+    cursor: "pointer",
+    padding: "10px 20px",
+    borderRadius: "4px",
+    width: "100%",
+    position: "relative",
+    letterSpacing: 0,
+    '&:hover, &:active': {
+        color: theme.palette.primary.contrastText,
+        letterSpacing: "2px",
+    },
+    '&:before, &:after': {
+        content: '""',
+        display: "block",
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: 0,
+        height: "2px",
+        background: "#fff",
+        transition: "width 350ms ease-in-out",
+    },
+    '&:before': {
+        top: 0,
+    },
+    '&:after': {
+        bottom: 0,
+    },
+    '&:hover:before, &:hover:after': {
+        width: "70%",
+    },
 }));
 
 export const StyledMobileToolbar = styled(Toolbar)(({ theme }) => ({
@@ -78,26 +110,26 @@ export default function Navbar() {
                         onClose={handleClose}
                     >
                         <MenuItem onClick={() => handleSmoothScroll("about")}>
-                            <StyledNavLink>About</StyledNavLink>
+                            <StyledNavLink>Sobre mim</StyledNavLink>
                         </MenuItem>
                         <MenuItem onClick={() => handleSmoothScroll("skills")}>
-                            <StyledNavLink>Skills</StyledNavLink>
+                            <StyledNavLink>Habilidades</StyledNavLink>
                         </MenuItem>
                         <MenuItem onClick={() => handleSmoothScroll("projects")}>
-                            <StyledNavLink>Projects</StyledNavLink>
+                            <StyledNavLink>Projetos</StyledNavLink>
                         </MenuItem>
                     </Menu>
                 </StyledMobileToolbar>
                 <StyledDesktopToolbar variant="regular">
                     <MenuItem onClick={() => handleSmoothScroll("about")}>
-                        <StyledNavLink>About</StyledNavLink>
-                    </MenuItem>
-                    <MenuItem onClick={() => handleSmoothScroll("skills")}>
-                        <StyledNavLink>Skills</StyledNavLink>
-                    </MenuItem>
-                    <MenuItem onClick={() => handleSmoothScroll("projects")}>
-                        <StyledNavLink>Projects</StyledNavLink>
-                    </MenuItem>
+                            <StyledNavLink>Sobre mim</StyledNavLink>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleSmoothScroll("skills")}>
+                            <StyledNavLink>Habilidades</StyledNavLink>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleSmoothScroll("projects")}>
+                            <StyledNavLink>Projetos</StyledNavLink>
+                        </MenuItem>
                 </StyledDesktopToolbar>
             </AppBar>
         </Box >
