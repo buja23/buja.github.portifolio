@@ -73,9 +73,9 @@ const HeroSection: React.FC = () => {
                         </Grid>
                         <Grid item xs={12} md={7}>
                             <Typography color="primary.contrastText" variant="h1" pb={2} textAlign="center">
-                                Adriana Saty
+                                Victor Azambuja
                             </Typography>
-                            <Typewriter text="I'm a Software Engineer" delay={120} variant="h2" color="primary.contrastText" />
+                            <Typewriter text="estudante de Análise e Desenvolvimento" delay={120} variant="h2" color="primary.contrastText" />
                             <Box mt={3}>
                                 <Grid container spacing={3} display="flex" justifyContent="center">
                                     <Grid item xs={10} md={4}>
