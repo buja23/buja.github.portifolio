@@ -9,11 +9,12 @@ let theme = createTheme({
     },
     palette: {
         primary: {
-            main: '#232323',
+            main: '#060010',
         },
         secondary: {
-            main: '#4f8e3e',
+            main: '#180c24',
         },
+        
     },
 });
 theme = responsiveFontSizes(theme);

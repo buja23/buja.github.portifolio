@@ -1,11 +1,11 @@
 import { Box, Container, Grid, Typography, styled } from "@mui/material"
-import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground"
 import Typewriter from "../../../../components/Typewriter/Typewriter"
 import Avatar from "../../../../assets/images/avatar.jpg"
 import DownloadIcon from '@mui/icons-material/Download';
 import EmailIcon from '@mui/icons-material/Email';
 import StyledButton from "../../../../components/StyledButton/StyledButton";
 import CV from "../../../../assets/pdfs/Open.pdf"
+import LightRays from '../../../../components/LightRays/LightRays';
 
 const HeroSection: React.FC = () => {
 
@@ -58,14 +58,34 @@ const HeroSection: React.FC = () => {
 
     return (
         <>
-            <StyledHero>
+            <StyledHero style={{ position: 'relative', overflow: 'hidden' }}>
+                <div style={{
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    zIndex: 0
+                }}>
+                    <LightRays
+                    raysOrigin="top-center"
+                    raysColor="#ffff"
+                    raysSpeed={1.0}
+                    lightSpread={0.5}
+                    rayLength={3.0}
+                    fadeDistance={1}
+                    saturation={1.0}
+                    followMouse={true}
+                    mouseInfluence={0.3}
+                    noiseAmount={0}
+                    distortion={0.05}
+                    className="custom-rays"
+                    />
+                </div>
                 <Container maxWidth="lg">
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={5}>
-                            <Box position="relative" pb={3}>
-                                <Box width={"150%"} position="absolute" top={-100} right={0}>
-                                    <AnimatedBackground />
-                                </Box>
+                            <Box position="relative" pb={3}>      
                                 <Box textAlign="center">
                                     <StyledImg src={Avatar} />
                                 </Box>
