@@ -1,7 +1,9 @@
 import { Box, Card, Container, Grid, Typography, styled } from "@mui/material"
 import SchoolIcon from '@mui/icons-material/School';
-import AnimationComponent from "../../../../components/AnimationComponent/AnimationComponent";
+import AnimatedContent  from "../../../../components/AnimatedContent/AnimatedContent";
 import SpotlightCard from '../../../../components/SpotlightCard/SpotlightCard';
+import ScrollReveal from '../../../../components/ScrollReveal/ScrollReveal';
+
 
 const AboutSection: React.FC = () => {
 
@@ -26,7 +28,18 @@ const AboutSection: React.FC = () => {
                 </Box>
                 <Grid container spacing={2} display="flex" justifyContent="center" pb={3}>
                     <Grid item xs={9} md={4}>
-                        <AnimationComponent moveDirection="left">
+                        <AnimatedContent
+                            distance={100}
+                            direction="vertical"
+                            reverse={false}
+                            duration={1}
+                            ease="power3.out"
+                            initialOpacity={0}
+                            animateOpacity
+                            scale={1}
+                            threshold={0.1}
+                            delay={0}
+                            >
                             <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(214, 228, 255, 0.68)">
                                 <SchoolIcon sx={{ color: "#fff"}}/>
                                 <Typography textAlign="center" color="primary.contrastText" fontWeight={600}>Ensino Medio / Curso técnico </Typography>
@@ -34,10 +47,21 @@ const AboutSection: React.FC = () => {
                                 <Typography textAlign="center" color="primary.contrastText">Analise e Desisvolvimento de Sistemas</Typography>
                                 <Typography textAlign="center" color="primary.contrastText">2021 - 2023</Typography>
                             </SpotlightCard>
-                        </AnimationComponent>
+                        </AnimatedContent>
                     </Grid>
                     <Grid item xs={9} md={4}>
-                        <AnimationComponent moveDirection="left">
+                        <AnimatedContent
+                            distance={100}
+                            direction="vertical"
+                            reverse={false}
+                            duration={1}
+                            ease="power3.out"
+                            initialOpacity={0}
+                            animateOpacity
+                            scale={1}
+                            threshold={0.1}
+                            delay={0}
+                            >
                             <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(14, 185, 185, 0.48)">
                                 <SchoolIcon sx={{ color: "#fff"}}/>
                                 <Typography textAlign="center" color="primary.contrastText" fontWeight={600}>Ensino Superior</Typography >
@@ -45,20 +69,37 @@ const AboutSection: React.FC = () => {
                                 <Typography textAlign="center" color="primary.contrastText">Analise e Desisvolvimento de Sistemas</Typography>
                                 <Typography textAlign="center" color="primary.contrastText">2024 - 2025</Typography>
                             </SpotlightCard>
-                        </AnimationComponent>
+                       </AnimatedContent>
                     </Grid>
                     
                 </Grid>
                 <Box pb={1}>
-                    <Typography>
-                    💻 Sou estudante de Análise e Desenvolvimento de Sistemas na FATEC, onde estou adquirindo conhecimentos fundamentais para me tornar um desenvolvedor completo.
-                    </Typography>
-                    <Typography>
-                    🎯 Estou sempre em busca de evolução profissional, explorando diversas áreas da tecnologia, incluindo frontend, backend e bancos de dados. Minha paixão por programação me motiva a aprender continuamente e a me manter atualizado com as tendências do setor.
-                    </Typography>
-                    <Typography>
-                    📚 Acredito que a prática é essencial para o aprendizado, por isso estou constantemente aplicando meus conhecimentos em projetos reais e desafiadores. Estou animado para enfrentar novos desafios e contribuir para soluções inovadoras no mundo da tecnologia.
-                    </Typography>
+                    <ScrollReveal
+                        enableBlur={true}
+                        blurStrength={3}
+                        baseOpacity={0.7}
+                        baseRotation={0}
+                    >
+                        💻 Sou estudante de Análise e Desenvolvimento de Sistemas na FATEC, onde estou adquirindo conhecimentos fundamentais para me tornar um desenvolvedor completo.
+                    </ScrollReveal>
+                    <ScrollReveal
+                        enableBlur={true}
+                        blurStrength={3}
+                        baseOpacity={0.7}
+                        baseRotation={0}
+                    >
+                        🎯 Estou sempre em busca de evolução profissional, explorando diversas áreas da tecnologia, incluindo frontend, backend e bancos de dados. Minha paixão por programação me motiva a aprender continuamente e a me manter atualizado com as tendências do setor.
+                    </ScrollReveal>
+                    <ScrollReveal
+                        enableBlur={true}
+                        blurStrength={3}
+                        baseOpacity={0.7}
+                        baseRotation={0}
+                        >
+                        📚 Acredito que a prática é essencial para o aprendizado, por isso estou constantemente aplicando meus conhecimentos em projetos reais e desafiadores. Estou animado para enfrentar novos desafios e contribuir para soluções inovadoras no mundo da tecnologia.
+                    </ScrollReveal>
+
+                    
                 </Box>
                 <hr />
                 <Box id="skills" pt={1} mb={3}>
