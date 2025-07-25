@@ -7,7 +7,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { styled } from '@mui/material';
-import theme from '../../theme';
 
 export const StyledNavLink = styled("a")(({ theme }) => ({
     textDecoration: "none",
@@ -20,8 +19,7 @@ export const StyledNavLink = styled("a")(({ theme }) => ({
     position: "relative",
     letterSpacing: 0,
     '&:hover, &:active': {
-        color: theme.palette.primary.contrastText,
-        letterSpacing: "2px",
+        color: theme.palette.primary.contrastText
     },
     '&:before, &:after': {
         content: '""',

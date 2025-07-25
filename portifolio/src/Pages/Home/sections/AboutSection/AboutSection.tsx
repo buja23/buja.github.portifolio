@@ -1,11 +1,11 @@
 import { Box, Card, Container, Grid, Typography, styled } from "@mui/material"
 import SchoolIcon from '@mui/icons-material/School';
 import AnimationComponent from "../../../../components/AnimationComponent/AnimationComponent";
+import SpotlightCard from '../../../../components/SpotlightCard/SpotlightCard';
 
 const AboutSection: React.FC = () => {
 
     const StyledCard = styled(Card)(({ theme }) => ({
-        padding: "10px 10px",
         textAlign: "center",
         marginBottom: "10px",
         '&:hover': {
@@ -22,18 +22,32 @@ const AboutSection: React.FC = () => {
             <Container maxWidth="lg">
                 <Box id="about" pt={5} mb={3}>
                     <Typography variant="h2" textAlign="center" >Sobre mim</Typography>
+                    <Typography variant="h5" textAlign="center" >Educação</Typography>
                 </Box>
                 <Grid container spacing={2} display="flex" justifyContent="center" pb={3}>
-                    <Grid item xs={9} md={2.5}>
+                    <Grid item xs={9} md={4}>
                         <AnimationComponent moveDirection="left">
-                            <StyledCard variant="outlined">
-                                <SchoolIcon />
-                                <Typography textAlign="center" fontWeight={600}>Educação</Typography>
-                                <Typography textAlign="center">Fatec - Presidente Prudente </Typography>
-                                <Typography textAlign="center">A.D.S</Typography>
-                            </StyledCard>
+                            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(214, 228, 255, 0.68)">
+                                <SchoolIcon sx={{ color: "#fff"}}/>
+                                <Typography textAlign="center" color="primary.contrastText" fontWeight={600}>Ensino Medio / Curso técnico </Typography>
+                                <Typography textAlign="center" color="primary.contrastText">Etec Prof. Dr. Antônio E. de Toledo </Typography>
+                                <Typography textAlign="center" color="primary.contrastText">Analise e Desisvolvimento de Sistemas</Typography>
+                                <Typography textAlign="center" color="primary.contrastText">2021 - 2023</Typography>
+                            </SpotlightCard>
                         </AnimationComponent>
                     </Grid>
+                    <Grid item xs={9} md={4}>
+                        <AnimationComponent moveDirection="left">
+                            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(14, 185, 185, 0.48)">
+                                <SchoolIcon sx={{ color: "#fff"}}/>
+                                <Typography textAlign="center" color="primary.contrastText" fontWeight={600}>Ensino Superior</Typography >
+                                <Typography textAlign="center" color="primary.contrastText">Fatec - Presidente Prudente </Typography>
+                                <Typography textAlign="center" color="primary.contrastText">Analise e Desisvolvimento de Sistemas</Typography>
+                                <Typography textAlign="center" color="primary.contrastText">2024 - 2025</Typography>
+                            </SpotlightCard>
+                        </AnimationComponent>
+                    </Grid>
+                    
                 </Grid>
                 <Box pb={1}>
                     <Typography>
