@@ -4,34 +4,74 @@ import { styled } from "@mui/material";
 interface StyledButtonProps {
     children: ReactNode;
     onClick?: () => void;
+    icon?: ReactNode;
 }
 
-const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick }) => {
+const CustomButton = styled("button")({
+    width: "150px",
+    height: "50px",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    background: "transparent",
+    border: "1px solid #fff",
+    borderRadius: "5px",
+    boxShadow: "1px 1px 3px rgba(0,0,0,0.15)",
+    position: "relative",
+    overflow: "hidden",
+    transition: "background 200ms",
+    "&, & span": {
+        transition: "200ms",
+    },
+    "&:hover": {
+        background: "transparent",
+    },
+    "&:focus": {
+        outline: "none",
+    },
+    "&:hover .text": {
+        color: "transparent",
+    },
+    "&:hover .icon": {
+        width: "140px",
+        borderLeft: "none",
+        transform: "translateX(0)",
+    },
+    "&:active .icon svg": {
+        transform: "scale(0.8)",
+    }
+});
 
-    const StyledButton = styled("button")(({ theme }) => ({
-        backgroundColor: "transparent",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        verticalAlign: "middle",
-        gap: "10px",
-        borderRadius: "3px",
-        padding: "5px 15px",
-        width: "100%",
-        border: `1px solid  ${theme.palette.primary.contrastText}`,
-        color: theme.palette.primary.contrastText,
-        cursor: "pointer",
-        transition: "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-        '&:hover': {
-            backgroundColor: theme.palette.secondary.light,
-        }
-    }));
+const Text = styled("span")({
+    transform: "translateX(10px)",
+    color: "white",
+    fontWeight: "bold",
+    transition: "200ms",
+});
 
-    return (
-        <>
-            <StyledButton onClick={onClick}>{children}</StyledButton>
-        </>
-    )
-}
+// linha
+const IconWrapper = styled("span")({
+    position: "absolute",
+    borderLeft: "1px solid #ffffffff",
+    transform: "translateX(107px)",
+    height: "40px",
+    width: "35px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "200ms",
+    "& svg": {
+        width: "25px",
+        fill: "#eee",
+        transition: "200ms",
+    }
+});
 
-export default StyledButton
+const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick, icon }) => (
+    <CustomButton onClick={onClick}>
+        <Text className="text">{children}</Text>
+        <IconWrapper className="icon">{icon}</IconWrapper>
+    </CustomButton>
+);
+
+export default StyledButton;

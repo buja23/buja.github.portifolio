@@ -92,23 +92,17 @@ const HeroSection: React.FC = () => {
                             <Typography color="primary.contrastText" variant="h1" pb={2} textAlign="center">
                                 Victor Azambuja
                             </Typography>
-                            <Typewriter text="estudante de Análise e Desenvolvimento" delay={120} variant="h2" color="primary.contrastText" />
+                            <Typewriter text="Estudante de Análise e Desenvolvimento De Sistemas" delay={120} variant="h2" color="primary.contrastText"/>
                             <Box mt={3}>
                                 <Grid container spacing={3} display="flex" justifyContent="center">
                                     <Grid item xs={10} md={4}>
-                                        <StyledButton onClick={() => handleDownload()}>
-                                            <DownloadIcon />
-                                            <Typography>
-                                                Download CV
-                                            </Typography>
+                                        <StyledButton onClick={handleDownload} icon={<DownloadIcon />}>
+                                        Baixar CV
                                         </StyledButton>
                                     </Grid>
                                     <Grid item xs={10} md={4}>
-                                        <StyledButton onClick={() => handleEmail()}>
-                                            <EmailIcon />
-                                            <Typography>
-                                                Contact me
-                                            </Typography>
+                                        <StyledButton onClick={handleDownload} icon={<EmailIcon />}>                                                
+                                        Enviar Email                                        
                                         </StyledButton>
                                     </Grid>
                                 </Grid>
