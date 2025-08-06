@@ -3,16 +3,26 @@ import SchoolIcon from '@mui/icons-material/School';
 import AnimatedContent  from "../../../../components/AnimatedContent/AnimatedContent";
 import SpotlightCard from '../../../../components/SpotlightCard/SpotlightCard';
 import ScrollReveal from '../../../../components/ScrollReveal/ScrollReveal';
+import { Color } from "ogl";
 
 
 const AboutSection: React.FC = () => {
 
     const StyledCard = styled(Card)(({ theme }) => ({
         textAlign: "center",
+        padding: "5px",
+        transition: "background-color 0.5s, transform 0.5s",
         marginBottom: "10px",
         '&:hover': {
-            backgroundColor: theme.palette.secondary.light
+            backgroundColor: theme.palette.secondary.light,
+            transform: "scale(1.1)",
+            color: theme.palette.primary.contrastText,
+        },
+        '&:active': {
+            transition: "all 0.25s",
         }
+
+        
     }));
 
     const skillsSet = [
