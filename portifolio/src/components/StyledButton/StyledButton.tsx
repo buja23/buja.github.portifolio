@@ -54,7 +54,7 @@ const IconWrapper = styled("span")({
     position: "absolute",
     borderLeft: "1px solid #ffffffff",
     transform: "translateX(107px)",
-    height: "40px",
+    height: "50px",
     width: "35px",
     display: "flex",
     alignItems: "center",
