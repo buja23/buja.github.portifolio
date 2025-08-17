@@ -3,7 +3,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import AnimatedContent  from "../../../../components/AnimatedContent/AnimatedContent";
 import SpotlightCard from '../../../../components/SpotlightCard/SpotlightCard';
 import ScrollReveal from '../../../../components/ScrollReveal/ScrollReveal';
-import { Color } from "ogl";
+
 
 
 const AboutSection: React.FC = () => {

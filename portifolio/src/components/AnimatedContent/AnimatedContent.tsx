@@ -16,6 +16,7 @@ interface AnimatedContentProps {
   scale?: number;
   threshold?: number;
   delay?: number;
+  style?: React.CSSProperties;
   onComplete?: () => void;
 }
 
@@ -31,6 +32,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   scale = 1,
   threshold = 0.1,
   delay = 0,
+  
   onComplete,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
