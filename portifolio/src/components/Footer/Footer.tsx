@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
                         <IconButton onClick={() => window.open("https://www.linkedin.com/in/victor-azambuja-980199370/")}>
                             <LinkedInIcon />
                         </IconButton>
-                        <IconButton href="mailto:example@example.com" target="_blank">
+                        <IconButton href="https://mail.google.com/mail/u/0/#sent?compose=GTvVlcSKkkRWzpssZWfStfGXBvxKPmqxFWBGZrdPDfDnxWHcmZtVWRJChpDBVPmwccglTKrHwNgzp" target="_blank">
                             <EmailIcon />
                         </IconButton>
                     </Box>

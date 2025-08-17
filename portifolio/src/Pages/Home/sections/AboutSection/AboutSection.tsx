@@ -77,7 +77,7 @@ const AboutSection: React.FC = () => {
                                 <Typography textAlign="center" color="primary.contrastText" fontWeight={600}>Ensino Superior</Typography >
                                 <Typography textAlign="center" color="primary.contrastText">Fatec - Presidente Prudente </Typography>
                                 <Typography textAlign="center" color="primary.contrastText">Analise e Desisvolvimento de Sistemas</Typography>
-                                <Typography textAlign="center" color="primary.contrastText">2024 - 2025</Typography>
+                                <Typography textAlign="center" color="primary.contrastText">2024 - 2026</Typography>
                             </SpotlightCard>
                        </AnimatedContent>
                     </Grid>

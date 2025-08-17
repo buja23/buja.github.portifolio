@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography, styled } from "@mui/material"
 import Typewriter from "../../../../components/Typewriter/Typewriter"
-import Avatar from "../../../../assets/images/avatar.jpg"
+import Avatar from "../../../../assets/images/avatar2.png"
 import DownloadIcon from '@mui/icons-material/Download';
 import EmailIcon from '@mui/icons-material/Email';
 import StyledButton from "../../../../components/StyledButton/StyledButton";
@@ -43,14 +43,22 @@ const HeroSection: React.FC = () => {
         document.body.removeChild(link);
     };
 
-    const handleEmail = () => {
-        const emailAddress = 'example@example.com';
-        const subject = 'Subject';
-        const body = 'Hello! I saw your portfolio...';
+const handleEmail = () => {
+  const emailAddress = "victor.azam10@gmail.com";
+  const subject = "Contato pelo Portfólio";
+  const body = "Olá Victor! Vi o seu portfólio e gostaria de conversar...";
 
-        const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.open(mailtoLink);
-    }
+  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+
+  // Tente com _blank para garantir em todos os navegadores
+  window.open(mailtoLink, "_blank");
+
+  console.log("email");
+};
+
+
 
     return (
         <>
@@ -101,7 +109,7 @@ const HeroSection: React.FC = () => {
                                         </StyledButton>
                                     </Grid>
                                     <Grid item xs={10} md={4}>
-                                        <StyledButton onClick={handleDownload} icon={<EmailIcon />}>                                                
+                                        <StyledButton onClick={handleEmail} icon={<EmailIcon />}>                                                
                                         Enviar Email                                        
                                         </StyledButton>
                                     </Grid>

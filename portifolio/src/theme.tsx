@@ -1,4 +1,3 @@
-
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 let theme = createTheme({
@@ -14,9 +13,9 @@ let theme = createTheme({
         secondary: {
             main: '#180c24',
         },
-        
     },
 });
+
 theme = responsiveFontSizes(theme);
 
 export default theme;

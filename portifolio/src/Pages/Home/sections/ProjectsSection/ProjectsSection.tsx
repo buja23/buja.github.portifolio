@@ -52,12 +52,12 @@ const ProjectsSection: React.FC = () => {
         <StyledExperience>
             <Container maxWidth="lg">
                 <Box id="projects" pt={5} pb={3}>
-                    <Typography variant="h2" textAlign="center" color="primary.contrastText">Projects</Typography>
+                    <Typography variant="h2" textAlign="center" color="primary.contrastText">Projetos</Typography>
                 </Box>
-                <Grid container spacing={5} pb={3}>
+                <Grid container spacing={5} pb={3} alignItems={"stretch"}>
                     {projects.map((project: ProjectCardProps, index: number) => (
-                        <Grid item md={6} key={index}>
-                            <AnimationComponent>
+                        <Grid item md={6} key={index} display={"flex"}>
+                            <AnimationComponent style={{ width: "100%" }}>
                                 <ProjectCard
                                     title={project.title}
                                     subtitle={project.subtitle}

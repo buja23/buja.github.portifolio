@@ -34,52 +34,57 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         },
     }));
 
-const StyledCard = styled("div")(({ theme }) => ({
-    borderRadius: "12px", // bordas mais suaves
-    border: `1px solid ${theme.palette.primary.contrastText}33`, // transparência no border
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.primary.contrastText,
-    padding: "24px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.05)", // sombra inicial suave
-    transition: "all 0.3s ease", // animação suave
+    const StyledCard = styled("div")(({ theme }) => ({
+  borderRadius: "12px",
+  border: `1px solid ${theme.palette.primary.contrastText}33`,
+  backgroundColor: theme.palette.secondary.main,
+  color: theme.palette.primary.contrastText,
+  padding: "24px",
+  boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+  transition: "all 0.3s ease",
 
-    '&:hover': {
-        backgroundColor: theme.palette.primary.light,
-        boxShadow: "0 8px 24px rgba(0,0,0,0.15)", // aumenta a sombra
-        transform: "translateY(-4px) scale(1.02)", // efeito de elevação
-    },
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  flex: 1,
 
-    // animação ao "clicar" (efeito de pressão)
-    '&:active': {
-        transform: "translateY(-2px) scale(0.99)",
-        boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
-    }
+  '&:hover': {
+    backgroundColor: theme.palette.primary.light,
+    boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+    transform: "translateY(-4px) scale(1.02)",
+  },
+
+  '&:active': {
+    transform: "translateY(-2px) scale(0.99)",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+  },
 }));
 
     return (
         <StyledCard>
-            <Typography variant="h5">
-                {title}
-            </Typography>
-            <Typography >
-                {subtitle}
-            </Typography>
+            <Typography variant="h5">{title}</Typography>
+            <Typography>{subtitle}</Typography>
             <StyledImg src={srcImg} />
-            <Typography>
-                {description}
-            </Typography>
+            <Typography>{description}</Typography>
             <Typography fontWeight={600} pt={2}>
                 {technologies}
             </Typography>
-            <Grid container spacing={1} pt={2}>
+
+            {/* Faz o botão colar no fim do card */}
+            <Grid container spacing={1} pt={2} sx={{ marginTop: "auto" }}>
                 <Grid item xs={6}>
-                    <StyledButton onClick={() => window.open(websiteURL)} icon={<VisibilityIcon />}>View Project</StyledButton>
+                <StyledButton onClick={() => window.open(websiteURL)} icon={<VisibilityIcon />}>
+                    View Project
+                </StyledButton>
                 </Grid>
                 <Grid item xs={6}>
-                    <StyledButton onClick={() => window.open(codeURL)} icon={<GitHubIcon />}>View Code</StyledButton>
+                <StyledButton onClick={() => window.open(codeURL)} icon={<GitHubIcon />}>
+                    View Code
+                </StyledButton>
                 </Grid>
             </Grid>
-        </StyledCard>
+            </StyledCard>
+
     )
 
 }
