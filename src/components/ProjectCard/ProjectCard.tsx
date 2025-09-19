@@ -72,12 +72,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
             {/* Faz o botão colar no fim do card */}
             <Grid container spacing={1} pt={2} sx={{ marginTop: "auto" }}>
-                <Grid item xs={6}>
+                <Grid item xs={6} sx={{display:"flex", justifyContent: "center"}}>
                 <StyledButton onClick={() => window.open(websiteURL)} icon={<VisibilityIcon />}>
                     View Project
                 </StyledButton>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={6} sx={{display:"flex", justifyContent: "center"}}>
                 <StyledButton onClick={() => window.open(codeURL)} icon={<GitHubIcon />}>
                     View Code
                 </StyledButton>

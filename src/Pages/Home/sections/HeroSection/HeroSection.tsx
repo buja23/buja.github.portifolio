@@ -102,15 +102,15 @@ const handleEmail = () => {
                             </Typography>
                             <Typewriter text="Estudante de Análise e Desenvolvimento De Sistemas" delay={120} variant="h2" color="primary.contrastText"/>
                             <Box mt={3}>
-                                <Grid container spacing={3} display="flex" justifyContent="center">
-                                    <Grid item xs={4} md={4}>
+                                <Grid container spacing={3} justifyContent="center">
+                                    <Grid item xs={12} md={4} sx={{display:"flex", justifyContent: "center"}} >
                                         <StyledButton onClick={handleDownload} icon={<DownloadIcon />}>
                                         Baixar CV
                                         </StyledButton>
                                     </Grid>
-                                    <Grid item xs={4} md={4}>
+                                    <Grid item xs={12} md={4} sx={{display:"flex", justifyContent: "center"}}>
                                         <StyledButton onClick={handleEmail} icon={<EmailIcon />}>                                                
-                                        Enviar Email                                        
+                                        Enviar Email                        
                                         </StyledButton>
                                     </Grid>
                                 </Grid>

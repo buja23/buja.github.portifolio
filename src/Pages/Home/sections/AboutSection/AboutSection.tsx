@@ -10,19 +10,21 @@ const AboutSection: React.FC = () => {
 
     const StyledCard = styled(Card)(({ theme }) => ({
         textAlign: "center",
-        padding: "5px",
+        padding: theme.spacing(1),
         transition: "background-color 0.5s, transform 0.5s",
-        marginBottom: "10px",
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // Cores específicas para o modo escuro desta seção
+        backgroundColor: '#1E1E1E', // Cor de "papel" escuro
+        color: '#FFFFFF', // Cor do texto padrão
+        border: '1px solid rgba(255, 255, 255, 0.12)', // Borda sutil
         '&:hover': {
-            backgroundColor: theme.palette.secondary.light,
+            backgroundColor: theme.palette.secondary.light, // Este pode vir do seu tema principal
             transform: "scale(1.1)",
-            color: theme.palette.primary.contrastText,
+            color: theme.palette.getContrastText(theme.palette.secondary.light),
         },
-        '&:active': {
-            transition: "all 0.25s",
-        }
-
-        
     }));
 
     const skillsSet = [
@@ -52,7 +54,7 @@ const AboutSection: React.FC = () => {
                             >
                             <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(214, 228, 255, 0.68)">
                                 <SchoolIcon sx={{ color: "#fff"}}/>
-                                <Typography textAlign="center" color="primary.contrastText" fontWeight={600}>Ensino Medio / Curso técnico </Typography>
+                                <Typography textAlign="center" color="primary.contrastText" fontWeight={600}> Curso técnico </Typography>
                                 <Typography textAlign="center" color="primary.contrastText">Etec Prof. Dr. Antônio E. de Toledo </Typography>
                                 <Typography textAlign="center" color="primary.contrastText">Analise e Desisvolvimento de Sistemas</Typography>
                                 <Typography textAlign="center" color="primary.contrastText">2021 - 2023</Typography>
@@ -106,7 +108,7 @@ const AboutSection: React.FC = () => {
                         baseOpacity={0.7}
                         baseRotation={0}
                         >
-                        📚 Acredito que a prática é essencial para o aprendizado, por isso estou constantemente aplicando meus conhecimentos em projetos reais e desafiadores. Estou animado para enfrentar novos desafios e contribuir para soluções inovadoras no mundo da tecnologia.
+                        📚 Acredito que a prática é essencial para o aprendizado, por isso estou constantemente aplicando meus conhecimentos em projetos reaiws e desafiadores. Estou animado para enfrentar novos desafios e contribuir para soluções inovadoras no mundo da tecnologia.
                     </ScrollReveal>
 
                     
