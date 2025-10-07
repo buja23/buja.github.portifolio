@@ -1,0 +1,63 @@
+.footer {
+  background-color: #0f172a;
+  color: white;
+  padding: 2rem 0;
+  border-top: 1px solid #475569;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
+  
+  .copyright {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .footer {
+    background-color: black;
+    border-top: 2px solid white;
+  }
+  
+  .copyright {
+    color: white;
+  }
+}
+
+/* Print styles */
+@media print {
+  .footer {
+    background-color: black;
+    color: white;
+    border-top: 1px solid white;
+  }
+  
+  .copyright {
+    color: white;
+  }
+}

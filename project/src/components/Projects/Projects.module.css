@@ -1,0 +1,387 @@
+.projects {
+  padding: 5rem 0;
+  background-color: #0f172a;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #f1f5f9;
+  margin: 0 0 4rem 0;
+  line-height: 1.2;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  border-radius: 2px;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projectCard {
+  background-color: #1e293b;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 58, 237, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.projectCard:hover .overlay {
+  opacity: 1;
+}
+
+.overlayContent {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.overlayLink {
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.overlayLink:hover,
+.overlayLink:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.overlayLink:disabled,
+.overlayLink.disabled {
+  background-color: rgba(100, 116, 139, 0.3);
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cardContent {
+  padding: 2rem;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0 0 1.5rem 0;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem 0;
+  list-style: none;
+  padding: 0;
+}
+
+.techTag {
+  background-color: #475569;
+  color: #e2e8f0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #64748b;
+  transition: all 0.2s ease;
+}
+
+.techTag:hover {
+  background-color: #64748b;
+  border-color: #94a3b8;
+}
+
+.cardActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  text-align: center;
+}
+
+.button:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.primaryButton {
+  background-color: #1e40af;
+  color: white;
+}
+
+.primaryButton:hover {
+  background-color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(30, 64, 175, 0.4);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: #cbd5e1;
+  border: 2px solid #475569;
+}
+
+.secondaryButton:hover {
+  background-color: rgba(71, 85, 105, 0.3);
+  border-color: #64748b;
+  color: #f1f5f9;
+}
+
+.button:disabled,
+.button.disabled {
+  background-color: #475569;
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button:disabled:hover,
+.button.disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: #475569;
+  border-color: #475569;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .imageWrapper {
+    height: 200px;
+  }
+  
+  .projectTitle {
+    font-size: 1.25rem;
+  }
+  
+  .cardActions {
+    justify-content: flex-start;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .imageWrapper {
+    height: 220px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .projectsGrid {
+    gap: 3rem;
+  }
+  
+  .imageWrapper {
+    height: 250px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .projectCard {
+    border: 2px solid white;
+    background-color: black;
+  }
+  
+  .projectTitle {
+    color: white;
+  }
+  
+  .projectDescription {
+    color: #ccc;
+  }
+  
+  .techTag {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+  }
+  
+  .button:focus {
+    outline: 3px solid white;
+  }
+  
+  .overlayLink:focus {
+    outline: 3px solid white;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .projectCard,
+  .projectImage,
+  .overlay,
+  .overlayLink,
+  .techTag,
+  .button {
+    transition: none;
+    animation: none;
+  }
+  
+  .projectCard:hover,
+  .primaryButton:hover {
+    transform: none;
+  }
+  
+  .projectCard:hover .projectImage {
+    transform: none;
+  }
+  
+  .projectCard {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .overlay {
+    display: none;
+  }
+  
+  .projectCard {
+    box-shadow: none;
+    border: 1px solid white;
+    break-inside: avoid;
+    background-color: black;
+  }
+  
+  .cardActions {
+    display: none;
+  }
+}
