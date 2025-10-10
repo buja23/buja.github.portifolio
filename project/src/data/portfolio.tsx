@@ -1,6 +1,7 @@
 import { IoLogoJavascript, IoLogoHtml5, IoLogoCss3, IoLogoNodejs, IoLogoPython, IoLogoVue } from 'react-icons/io5';
 import { SiTypescript, SiNextdotjs, SiMongodb, SiMui, SiFigma, SiPhp, SiMysql, SiExpress, SiFfmpeg } from 'react-icons/si';
 import { FaReact, FaLaravel, FaGitAlt, FaGithub } from 'react-icons/fa';
+import chamada from '../assets/chamada.png'
 
 export const Skills = [
   // Front-End
@@ -57,10 +58,10 @@ export const education = [
 export const projects = [
   {
     id: 1,
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    demoUrl: 'https://demo-ecommerce.com' as string | null,
-    codeUrl: 'https://github.com/username/ecommerce' as string | null,
+    image: chamada,
+    technologies: ['React', 'TypeScript', 'Firebase'],
+    demoUrl: 'https://buja23.github.io/ChamadaDigital-Jiu-view/students' as string | null,
+    codeUrl: 'https://github.com/buja23/ChamadaDigital-Jiu-view' as string | null,
   },
   {
     id: 2,

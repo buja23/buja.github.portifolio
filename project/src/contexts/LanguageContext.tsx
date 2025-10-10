@@ -38,8 +38,8 @@ const translations = {
     notAvailable: 'Não Disponível',
 
     // Project Data
-    project1Title: 'E-Commerce Moderno',
-    project1Description: 'Plataforma completa de e-commerce com carrinho, pagamentos e painel administrativo.',
+    project1Title: 'Sistema de Gerenciamento de Alunos e Chamada para Jiu-Jitsu',
+    project1Description: 'Plataforma para gerenciamento de alunos e registro de presença para equipes de Jiu-Jitsu, O sistema está em produção e é validado pelo uso prático no Instituto Sonhe e na equipe Nilson Nunes.',
     project2Title: 'Dashboard Analytics',
     project2Description: 'Dashboard interativo para visualização de dados com gráficos em tempo real.',
     project3Title: 'App Mobile React Native',
@@ -89,8 +89,8 @@ const translations = {
     notAvailable: 'Not Available',
 
     // Project Data
-    project1Title: 'Modern E-Commerce',
-    project1Description: 'Complete e-commerce platform with cart, payments and admin panel.',
+    project1Title: 'Jiu-Jitsu Student and Attendance Management System',
+    project1Description: 'A platform for student management and attendance tracking for Jiu-Jitsu teams. The system is in production and validated by its practical use at the Sonhe Institute and by the Nilson Nunes team.',
     project2Title: 'Analytics Dashboard',
     project2Description: 'Interactive dashboard for data visualization with real-time charts.',
     project3Title: 'React Native Mobile App',

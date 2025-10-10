@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
     <footer className={styles.footer} role="contentinfo">
       <div className={styles.container}>
         <p className={styles.copyright}>
-          © {currentYear} João Silva Santos. {t('footerText')}.
+          © {currentYear} Victor Azambuja. {t('footerText')}.
         </p>
       </div>
     </footer>
