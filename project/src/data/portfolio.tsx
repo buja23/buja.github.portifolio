@@ -1,6 +1,8 @@
 import { IoLogoJavascript, IoLogoHtml5, IoLogoCss3, IoLogoNodejs, IoLogoPython, IoLogoVue } from 'react-icons/io5';
 import { SiTypescript, SiNextdotjs, SiMongodb, SiMui, SiFigma, SiPhp, SiMysql, SiExpress, SiFfmpeg } from 'react-icons/si';
-import { FaReact, FaLaravel, FaGitAlt, FaGithub } from 'react-icons/fa';
+import { FaReact, FaLaravel, FaGitAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
+
 import chamada from '../assets/chamada.png'
 
 export const Skills = [
@@ -33,7 +35,7 @@ export const Skills = [
 ];
 
 export const education = [
-   {
+  {
     id: 1,
     degree: 'Curso Técnico em Análise e Desenvolvimento de Sistemas',
     degreeEn: 'Technical Course in Systems Analysis and Development',
@@ -83,16 +85,16 @@ export const socialLinks = [
   {
     name: 'LinkedIn',
     url: 'https://linkedin.com/in/username',
-    icon: '💼',
+    icon: <FaLinkedin />,
   },
   {
     name: 'GitHub',
-    url: 'https://github.com/username',
-    icon: '🐙',
+    url: 'https://github.com/buja23?tab=overview&from=2025-10-01&to=2025-10-10',
+    icon: <FaGithub/>,
   },
   {
     name: 'Email',
     url: 'mailto:seu-email@exemplo.com',
-    icon: '📧',
+    icon: <MdEmail />,
   },
 ];
