@@ -4,6 +4,8 @@ import { FaReact, FaLaravel, FaGitAlt, FaGithub, FaLinkedin } from 'react-icons/
 import { MdEmail } from "react-icons/md";
 
 import chamada from '../assets/chamada.png'
+import alita from '../assets/alita.png'
+import editor from '../assets/editor.png'
 
 export const Skills = [
   // Front-End
@@ -67,15 +69,15 @@ export const projects = [
   },
   {
     id: 2,
-    image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['React', 'D3.js', 'TypeScript', 'WebSocket'],
-    demoUrl: 'https://demo-dashboard.com' as string | null,
-    codeUrl: 'https://github.com/username/dashboard' as string | null,
+    image: alita,
+    technologies: ['Gamemaker 2', 'GML', 'Piskel'],
+    demoUrl: null,
+    codeUrl: null,
   },
   {
     id: 3,
-    image: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['React Native', 'Redux', 'Firebase', 'AsyncStorage'],
+    image: editor,
+    technologies: ['Vue', 'ffmpeg', 'Electron', 'Figma'],
     demoUrl: null,
     codeUrl: null,
   },
@@ -84,7 +86,7 @@ export const projects = [
 export const socialLinks = [
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/username',
+    url: 'https://www.linkedin.com/in/victor-azambuja-980199370',
     icon: <FaLinkedin />,
   },
   {
@@ -94,7 +96,7 @@ export const socialLinks = [
   },
   {
     name: 'Email',
-    url: 'mailto:seu-email@exemplo.com',
+    url: 'victor.azam10@gmail.com',
     icon: <MdEmail />,
   },
 ];

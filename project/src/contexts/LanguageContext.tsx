@@ -20,7 +20,7 @@ const translations = {
     // Hero Section
     heroRole: 'Desenvolvedor Full-stack',
     heroSubtitle: 'Experiência em React, Node.js, PHP, MongoDB e Firebase',
-    viewProjects: 'Ver Projetos',
+    DownloadCV: 'Baixar CV',
     getInTouch: 'Contato',
 
     // About Section
@@ -40,10 +40,10 @@ const translations = {
     // Project Data
     project1Title: 'Sistema de Gerenciamento de Alunos e Chamada para Jiu-Jitsu',
     project1Description: 'Plataforma para gerenciamento de alunos e registro de presença para equipes de Jiu-Jitsu, O sistema está em produção e é validado pelo uso prático no Instituto Sonhe e na equipe Nilson Nunes.',
-    project2Title: 'Dashboard Analytics',
-    project2Description: 'Dashboard interativo para visualização de dados com gráficos em tempo real.',
-    project3Title: 'App Mobile React Native',
-    project3Description: 'Aplicativo móvel multiplataforma com sincronização offline.',
+    project2Title: 'Jogo para Transtorno do Espectro Autista (Alita: Mountain Aventure)',
+    project2Description: 'Como Trabalho de Conclusão de Curso (TCC), desenvolvi um jogo digital com suporte para crianças com Transtorno do Espectro Autista (TEA). O projeto consiste em uma aventura 2D onde o jogador controla a personagem Alita, que deve coletar itens e completar missões para ajudar seus amigos, promovendo um ambiente de aprendizado e interação.',
+    project3Title: 'Editor de Vídeo',
+    project3Description: 'Fui um dos desenvolvedores principais no projeto de um novo editor de vídeo, fruto de uma parceria estratégica com a Multimidia para integração com a plataforma creator4all. Minha participação foi integral, abrangendo desde o planejamento e arquitetura iniciais até a implementação da versão final. Atualmente, com o projeto em fase de refinamento para entrega, fui realocado para liderar novos projetos.',
 
     // Contact Section
     contactTitle: 'Vamos Conversar?',
@@ -71,7 +71,7 @@ const translations = {
     // Hero Section
     heroRole: 'Full-stack Developer',
     heroSubtitle: 'Experienced in React, Node.js, PHP, MongoDB, and Firebase.',
-    viewProjects: 'View Projects',
+    DownloadCV: 'Download CV',
     getInTouch: 'Get in Touch',
 
     // About Section
@@ -91,10 +91,10 @@ const translations = {
     // Project Data
     project1Title: 'Jiu-Jitsu Student and Attendance Management System',
     project1Description: 'A platform for student management and attendance tracking for Jiu-Jitsu teams. The system is in production and validated by its practical use at the Sonhe Institute and by the Nilson Nunes team.',
-    project2Title: 'Analytics Dashboard',
-    project2Description: 'Interactive dashboard for data visualization with real-time charts.',
-    project3Title: 'React Native Mobile App',
-    project3Description: 'Cross-platform mobile app with offline synchronization.',
+    project2Title: 'Game for Autism Spectrum Disorder (Alita: Mountain Adventure)',
+    project2Description: 'As a Final Course Project (TCC), I developed a digital game with support for children with Autism Spectrum Disorder (ASD). The project is a 2D adventure where the player controls the character Alita, who must collect items and complete missions to help her friends, promoting a learning and interactive environment.',
+    project3Title: 'Video Editor',
+    project3Description: 'I was a lead developer on a new video editor project, the result of a strategic partnership with Multimidia to integrate with the creator4all platform. My involvement was integral, spanning from initial planning and architecture to the implementation of the final version. With the project now in the final refinement phase before delivery, I have been reassigned to lead new projects.',
 
     // Contact Section
     contactTitle: "Let's Talk?",

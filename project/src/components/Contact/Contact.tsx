@@ -15,9 +15,24 @@ const Contact: React.FC = () => {
     }
   };
 
+  const handleEmail = () => {
+    const emailAddress = "victor.azam10@gmail.com";
+    const subject = "Contato pelo Portfólio";
+    const body = "Olá Victor! Vi o seu portfólio e gostaria de conversar...";
+
+    const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Tente com _blank para garantir em todos os navegadores
+    window.open(mailtoLink, "_blank");
+
+    console.log("email");
+  };
+
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className={styles.contact}
       ref={ref}
       aria-labelledby="contact-title"
@@ -26,12 +41,12 @@ const Contact: React.FC = () => {
         <h2 id="contact-title" className={styles.title}>
           {t('contactTitle')}
         </h2>
-        
+
         <p className={styles.description}>
           {t('contactDescription')}
         </p>
-        
-        <div 
+
+        <div
           className={styles.socialLinks}
           role="list"
           aria-label="Links para redes sociais"
@@ -46,15 +61,17 @@ const Contact: React.FC = () => {
               role="listitem"
               aria-label={`${link.name} - ${t('socialLink')}`}
               style={{ animationDelay: `${index * 0.1}s` }}
-              onKeyDown={(e) => handleKeyDown(e, () => {
-                if (link.name !== 'Email') {
-                  window.open(link.url, '_blank');
-                } else {
-                  window.location.href = link.url;
+              onClick={(e) => {
+                // Se o link for do tipo 'Email', executa uma função customizada.
+                if (link.name === 'Email') {
+                  e.preventDefault(); // Impede a navegação padrão do href.
+                  handleEmail();      // Chama a função que abre o cliente de email.
                 }
-              })}
+                // Para outros links, o comportamento padrão do href é mantido.
+              }}
             >
               <div className={styles.iconWrapper}>
+                {/* Ícone é decorativo e escondido de leitores de tela */}
                 <span className={styles.icon} aria-hidden="true">
                   {link.icon}
                 </span>

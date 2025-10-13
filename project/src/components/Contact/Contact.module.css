@@ -148,15 +148,15 @@
 
 /* Special styling for different social links */
 .socialLink[href*="linkedin"]:hover .iconWrapper {
-  background: linear-gradient(135deg, #0077b5, #0066a2);
+  background: linear-gradient(135deg, #3aa4dd, #006097);
 }
 
 .socialLink[href*="github"]:hover .iconWrapper {
-  background: linear-gradient(135deg, #333, #24292e);
+  background: linear-gradient(135deg, #727272, #24292e);
 }
 
 .socialLink[href*="mailto"]:hover .iconWrapper {
-  background: linear-gradient(135deg, #ea4335, #d33b2c);
+  background: linear-gradient(135deg, #ea4335, #580800);
 }
 
 /* Tablet styles */

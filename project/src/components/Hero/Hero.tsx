@@ -3,6 +3,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Hero.module.css';
 import avatar from '../../assets/avatar.png'
+import CV from '../../assets/pdf/Curriculo.pdf'
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -15,16 +16,20 @@ const Hero: React.FC = () => {
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      action();
-    }
+  const handleDownload = () => {
+    console.log("download")
+    const link = document.createElement('a');
+    link.href = CV
+    link.download = 'Curriculo.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
+
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className={styles.hero}
       ref={ref}
       aria-label={t('home')}
@@ -33,7 +38,7 @@ const Hero: React.FC = () => {
         <div className={styles.content}>
           <div className={styles.profileSection}>
             <div className={styles.profileImageWrapper}>
-              <img 
+              <img
                 src={avatar}
                 alt={t('profilePhoto')}
                 className={styles.profileImage}
@@ -41,33 +46,31 @@ const Hero: React.FC = () => {
               />
             </div>
           </div>
-          
+
           <div className={styles.textSection}>
             <h1 className={styles.name}>
               Victor Azambuja
             </h1>
-            
+
             <p className={styles.role}>
               {t('heroRole')}
             </p>
-            
+
             <p className={styles.subtitle}>
               {t('heroSubtitle')}
             </p>
-            
+
             <div className={styles.actions}>
               <button
-                onClick={() => scrollToSection('projects')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('projects'))}
+                onClick={() => handleDownload()}
                 className={`${styles.button} ${styles.primaryButton}`}
-                aria-describedby="projects-description"
               >
-                {t('viewProjects')}
+                {t('DownloadCV')}
               </button>
-              
+
               <button
                 onClick={() => scrollToSection('contact')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('contact'))}
+
                 className={`${styles.button} ${styles.secondaryButton}`}
                 aria-describedby="contact-description"
               >
@@ -76,7 +79,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Screen reader descriptions */}
         <div className="sr-only">
           <p id="projects-description">
