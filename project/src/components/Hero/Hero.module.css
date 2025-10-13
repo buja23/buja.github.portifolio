@@ -2,7 +2,6 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
   color: white;
   position: relative;
   overflow: hidden;
@@ -16,15 +15,22 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 0;
+}
+
+.backgroundWrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* CORREÇÃO 2: Força o background a ficar atrás de TUDO */
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  position: relative;
-  z-index: 2;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;

@@ -4,6 +4,8 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import styles from './Hero.module.css';
 import avatar from '../../assets/avatar.png'
 import CV from '../../assets/pdf/Curriculo.pdf'
+import DarkVeil  from '../background/DarkVeil '
+
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -28,12 +30,16 @@ const Hero: React.FC = () => {
 
 
   return (
+    
     <section
       id="home"
       className={styles.hero}
       ref={ref}
       aria-label={t('home')}
     >
+      <div className={styles.backgroundWrapper}>
+        <DarkVeil speed={1.8} noiseIntensity={0.1} warpAmount={5} scanlineFrequency={10} scanlineIntensity={2}/>
+      </div>
       <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
         <div className={styles.content}>
           <div className={styles.profileSection}>
