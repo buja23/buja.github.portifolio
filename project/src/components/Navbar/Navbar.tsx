@@ -41,7 +41,7 @@ const Header: React.FC = () => {
               className={styles.logoButton}
               aria-label={t('home')}
             >
-              <span className={styles.logoText}>Portfolio</span>
+              <span className={styles.logoText}>Azambuja</span>
             </button>
           </div>
 

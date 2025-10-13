@@ -6,6 +6,8 @@ import { MdEmail } from "react-icons/md";
 import chamada from '../assets/chamada.png'
 import alita from '../assets/alita.png'
 import editor from '../assets/editor.png'
+import apae from '../assets/apae.png'
+import bgbj from '../assets/bjtech.png'
 
 export const Skills = [
   // Front-End
@@ -80,6 +82,20 @@ export const projects = [
     technologies: ['Vue', 'ffmpeg', 'Electron', 'Figma'],
     demoUrl: null,
     codeUrl: null,
+  },
+   {
+    id: 4,
+    image: apae,
+    technologies: ['PHP', 'MySQL'],
+    demoUrl: null,
+    codeUrl: 'https://github.com/JoaoPCisilo/APAE' as string | null,
+  },
+   {
+    id: 5,
+    image: bgbj,
+    technologies: ['React', 'Node', 'MongoDB'],
+    demoUrl: null,
+    codeUrl: 'https://github.com/buja23/BG-BJ-tec' as string | null,
   },
 ];
 

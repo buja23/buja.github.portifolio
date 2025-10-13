@@ -1,6 +1,6 @@
 import React from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
-import Header from './components/Header/Header';
+import Header from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Education from './components/Education/Education';

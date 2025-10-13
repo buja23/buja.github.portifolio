@@ -44,7 +44,10 @@ const translations = {
     project2Description: 'Como Trabalho de Conclusão de Curso (TCC), desenvolvi um jogo digital com suporte para crianças com Transtorno do Espectro Autista (TEA). O projeto consiste em uma aventura 2D onde o jogador controla a personagem Alita, que deve coletar itens e completar missões para ajudar seus amigos, promovendo um ambiente de aprendizado e interação.',
     project3Title: 'Editor de Vídeo',
     project3Description: 'Fui um dos desenvolvedores principais no projeto de um novo editor de vídeo, fruto de uma parceria estratégica com a Multimidia para integração com a plataforma creator4all. Minha participação foi integral, abrangendo desde o planejamento e arquitetura iniciais até a implementação da versão final. Atualmente, com o projeto em fase de refinamento para entrega, fui realocado para liderar novos projetos.',
-
+    project4Title: 'Controle de estoque para APAE',
+    project4Description: 'Participei de um projeto de desenvolvimento em grupo, realizado através de uma parceria entre a faculdade e a APAE, com o objetivo de criar um sistema para otimização do controle de insumos da instituição.',
+    project5Title: 'Sistema de Controle de Vendas',
+    project5Description: 'Sistema de controle de vendas desenvolvido para auxiliar no gerenciamento de vendas e estoque de uma loja. O sistema permite o cadastro de produtos, clientes e vendas, além de gerar relatórios e gráficos para análise de desempenho.',
     // Contact Section
     contactTitle: 'Vamos Conversar?',
     contactDescription: 'Estou sempre aberto a novos desafios e oportunidades. Entre em contato!',
@@ -95,6 +98,10 @@ const translations = {
     project2Description: 'As a Final Course Project (TCC), I developed a digital game with support for children with Autism Spectrum Disorder (ASD). The project is a 2D adventure where the player controls the character Alita, who must collect items and complete missions to help her friends, promoting a learning and interactive environment.',
     project3Title: 'Video Editor',
     project3Description: 'I was a lead developer on a new video editor project, the result of a strategic partnership with Multimidia to integrate with the creator4all platform. My involvement was integral, spanning from initial planning and architecture to the implementation of the final version. With the project now in the final refinement phase before delivery, I have been reassigned to lead new projects.',
+    project4Title: 'Inventory Control for APAE',
+    project4Description: 'I participated in a group development project, conducted through a partnership between the university and APAE, with the goal of creating a system to optimize the institutions supply management.',
+    project5Title: 'Sales Control System',
+    project5Description: 'A sales control system developed to assist in managing a stores sales and inventory. The system allows for registering products, customers, and sales, in addition to generating reports and charts for performance analysis.',
 
     // Contact Section
     contactTitle: "Let's Talk?",
