@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
       aria-label={t('home')}
     >
       <div className={styles.backgroundWrapper}>
-        <DarkVeil speed={1.8} noiseIntensity={0.1} warpAmount={5} scanlineFrequency={10} scanlineIntensity={2}/>
+        <DarkVeil speed={1.8} noiseIntensity={0.1} warpAmount={5} scanlineFrequency={10} scanlineIntensity={2} hueShift={25}/>
       </div>
       <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
         <div className={styles.content}>

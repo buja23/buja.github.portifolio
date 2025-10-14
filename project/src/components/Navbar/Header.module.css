@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: rgba(15, 23, 42, 0.95);
+  background-color: rgba(0, 22, 75, 0.219);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(71, 85, 105, 0.3);
   transition: all 0.3s ease;
