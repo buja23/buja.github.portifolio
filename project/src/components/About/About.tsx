@@ -3,7 +3,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Skills } from '../../data/portfolio';
 import styles from './About.module.css';
-import DarkVeil from '../background/DarkVeil ';
+
 
 const About: React.FC = () => {
   const { t } = useLanguage();

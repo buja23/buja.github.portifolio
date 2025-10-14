@@ -46,7 +46,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  background: linear-gradient(90deg, #0a8eda, #0a4ca1);
   border-radius: 2px;
 }
 
@@ -103,6 +103,7 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
   border-color: rgba(96, 165, 250, 0.4);
   background-color: #475569;
+  color: #e2e8f0;
 }
 
 .socialLink:focus {
@@ -123,7 +124,7 @@
 }
 
 .socialLink:hover .iconWrapper {
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  background: linear-gradient(135deg, #ea4335, #580800);
   transform: scale(1.1);
 }
 
@@ -164,22 +165,22 @@
   .container {
     padding: 0 3rem;
   }
-  
+
   .title {
     font-size: 3rem;
   }
-  
+
   .description {
     font-size: 1.25rem;
     margin-bottom: 4rem;
   }
-  
+
   .socialLinks {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   .socialLink {
     min-width: 250px;
     flex-direction: column;
@@ -188,17 +189,17 @@
     justify-content: center;
     gap: 1rem;
   }
-  
+
   .iconWrapper {
     width: 60px;
     height: 60px;
     margin-bottom: 0;
   }
-  
+
   .icon {
     font-size: 1.75rem;
   }
-  
+
   .linkText {
     text-align: center;
     flex: none;
@@ -210,11 +211,11 @@
   .container {
     padding: 0 4rem;
   }
-  
+
   .socialLinks {
     gap: 2rem;
   }
-  
+
   .socialLink {
     min-width: 220px;
   }
@@ -225,25 +226,25 @@
   .contact {
     background: black;
   }
-  
+
   .title {
     color: white;
   }
-  
+
   .description {
     color: #ccc;
   }
-  
+
   .socialLink {
     border: 2px solid white;
     background-color: black;
     color: white;
   }
-  
+
   .socialLink:focus {
     outline: 3px solid white;
   }
-  
+
   .linkText {
     color: white;
   }
@@ -251,6 +252,7 @@
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .container,
   .socialLink,
   .iconWrapper,
@@ -259,16 +261,16 @@
     transition: none;
     animation: none;
   }
-  
+
   .socialLink:hover {
     transform: none;
   }
-  
+
   .socialLink:hover .iconWrapper,
   .socialLink:hover .icon {
     transform: none;
   }
-  
+
   .socialLink {
     opacity: 1;
     transform: none;
@@ -281,13 +283,13 @@
     background: black;
     padding: 2rem 0;
   }
-  
+
   .socialLink {
     box-shadow: none;
     border: 1px solid white;
     background-color: black;
   }
-  
+
   .socialLink::after {
     content: " (" attr(href) ")";
     font-size: 0.875rem;

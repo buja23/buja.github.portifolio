@@ -36,7 +36,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+     background: linear-gradient(90deg, #0a8eda, #0a4ca1);
   border-radius: 2px;
 }
 
@@ -97,7 +97,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(124, 58, 237, 0.9));
+   background: linear-gradient(90deg, #0a8edad7, #0a4ba1d0);
   display: flex;
   align-items: center;
   justify-content: center;

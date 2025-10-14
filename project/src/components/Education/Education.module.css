@@ -46,7 +46,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+     background: linear-gradient(90deg, #0a8eda, #0a4ca1);
   border-radius: 2px;
 }
 
@@ -89,7 +89,7 @@
 .timelineDot {
   width: 20px;
   height: 20px;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+     background: linear-gradient(90deg, #0a8eda, #0a4ca1);
   border-radius: 50%;
   border: 4px solid #334155;
   box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
@@ -105,7 +105,7 @@
 .timelineLine {
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, #60a5fa, #a78bfa);
+     background: linear-gradient(90deg, #0a8eda, #1154b1);
   margin-top: 1rem;
   border-radius: 1px;
   opacity: 0.6;
@@ -142,7 +142,7 @@
 
 .period {
   display: inline-block;
-  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+     background: linear-gradient(90deg, #0a8eda, #0a4ca1);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
