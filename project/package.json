@@ -2,11 +2,12 @@
   "name": "Portifolio",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://buja23.github.io/buja.github.portifolio", 
+  "homepage": "https://buja23.github.io/buja.github.portifolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview",
