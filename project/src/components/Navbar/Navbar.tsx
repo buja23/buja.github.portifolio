@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import styles from './Header.module.css';
+import ReactCountryFlag from 'react-country-flag';
 
 const Header: React.FC = () => {
   const { language, toggleLanguage, t } = useLanguage();
@@ -11,7 +12,7 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -106,11 +107,25 @@ const Header: React.FC = () => {
             <button
               onClick={toggleLanguage}
               onKeyDown={(e) => handleKeyDown(e, toggleLanguage)}
-              className={styles.languageToggle}
+              className={styles.languageToggle} // Aplica o estilo do botão
               aria-label={t('languageToggle')}
               tabIndex={0}
             >
-              {language === 'pt' ? '🇺🇸' : '🇧🇷'}
+              {language === 'pt' ? (
+                <ReactCountryFlag
+                  countryCode="US"
+                  svg
+                  className={styles.flagIcon} // Aplica o estilo para a bandeira preencher
+                  aria-label="Mudar para Inglês"
+                />
+              ) : (
+                <ReactCountryFlag
+                  countryCode="BR"
+                  svg
+                  className={styles.flagIcon} // Aplica o estilo para a bandeira preencher
+                  aria-label="Mudar para Português"
+                />
+              )}
             </button>
 
             {/* Mobile Menu Toggle */}
