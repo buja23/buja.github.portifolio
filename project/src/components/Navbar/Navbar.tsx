@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import styles from './Header.module.css';
-import ReactCountryFlag from 'react-country-flag';
 
 const Header: React.FC = () => {
   const { language, toggleLanguage, t } = useLanguage();
@@ -81,6 +80,14 @@ const Header: React.FC = () => {
               </li>
               <li>
                 <button
+                  onClick={() => scrollToSection('process')}
+                  className={styles.navLink}
+                >
+                  {t('processTitle')}
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => scrollToSection('projects')}
                   onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('projects'))}
                   className={styles.navLink}
@@ -111,21 +118,7 @@ const Header: React.FC = () => {
               aria-label={t('languageToggle')}
               tabIndex={0}
             >
-              {language === 'pt' ? (
-                <ReactCountryFlag
-                  countryCode="US"
-                  svg
-                  className={styles.flagIcon} // Aplica o estilo para a bandeira preencher
-                  aria-label="Mudar para Inglês"
-                />
-              ) : (
-                <ReactCountryFlag
-                  countryCode="BR"
-                  svg
-                  className={styles.flagIcon} // Aplica o estilo para a bandeira preencher
-                  aria-label="Mudar para Português"
-                />
-              )}
+              <span className={styles.languageCode}>{language === 'pt' ? 'EN' : 'PT'}</span>
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -180,6 +173,15 @@ const Header: React.FC = () => {
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 {t('education')}
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => scrollToSection('process')}
+                className={styles.mobileNavLink}
+                tabIndex={isMenuOpen ? 0 : -1}
+              >
+                {t('processTitle')}
               </button>
             </li>
             <li>

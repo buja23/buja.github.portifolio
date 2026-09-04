@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { education } from '../../data/portfolio';
+import InteractiveGrid from '../background/InteractiveGrid';
 import styles from './Education.module.css';
 
 const Education: React.FC = () => {
@@ -15,10 +16,15 @@ const Education: React.FC = () => {
       ref={ref}
       aria-labelledby="education-title"
     >
+      <div className={styles.backgroundWrapper}><InteractiveGrid /></div>
       <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
-        <h2 id="education-title" className={styles.title}>
-          {t('educationTitle')}
-        </h2>
+        <div className={styles.heading}>
+          <div>
+            <span className="eyebrow">04 / trajectory</span>
+            <h2 id="education-title" className={styles.title}>{t('educationTitle')}</h2>
+          </div>
+          <p className={styles.intro}>{t('educationIntro')}</p>
+        </div>
         
         <div 
           className={styles.educationList}
@@ -40,8 +46,9 @@ const Education: React.FC = () => {
               </div>
               
               <div className={styles.content}>
-                <div className={styles.period}>
-                  {item.period}
+                <div className={styles.meta}>
+                  <span className={styles.period}>{item.period}</span>
+                  {item.id === 2 && <span className={styles.current}>{t('educationCurrent')}</span>}
                 </div>
                 
                 <h3 className={styles.degree}>
@@ -55,6 +62,7 @@ const Education: React.FC = () => {
                 <p className={styles.description}>
                   {language === 'pt' ? item.description : item.descriptionEn}
                 </p>
+                <span className={styles.entryNumber}>0{item.id} / formação</span>
               </div>
             </div>
           ))}

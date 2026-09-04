@@ -3,24 +3,19 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { projects } from '../../data/portfolio';
 import styles from './Projects.module.css';
+import { FiArrowUpRight, FiCode } from 'react-icons/fi';
+import InteractiveGrid from '../background/InteractiveGrid';
 
 const Projects: React.FC = () => {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation();
 
   const getProjectTitle = (id: number) => {
-    return t(`project${id}Title` as any);
+    return t(`project${id}Title`);
   };
 
   const getProjectDescription = (id: number) => {
-    return t(`project${id}Description` as any);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      action();
-    }
+    return t(`project${id}Description`);
   };
 
   return (
@@ -30,10 +25,15 @@ const Projects: React.FC = () => {
       ref={ref}
       aria-labelledby="projects-title"
     >
+      <div className={styles.backgroundWrapper}><InteractiveGrid /></div>
       <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
-        <h2 id="projects-title" className={styles.title}>
-          {t('projectsTitle')}
-        </h2>
+        <div className={styles.heading}>
+          <div>
+            <span className="eyebrow">02 / selected_work</span>
+            <h2 id="projects-title" className={styles.title}>{t('projectsTitle')}</h2>
+          </div>
+          <p className={styles.headingNote}>{t('projectsIntro')}</p>
+        </div>
         
         <div 
           className={styles.projectsGrid}
@@ -43,7 +43,7 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className={styles.projectCard}
+              className={`${styles.projectCard} ${project.id === 1 ? styles.featuredProject : ''}`}
               role="listitem"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -54,54 +54,26 @@ const Projects: React.FC = () => {
                   className={styles.projectImage}
                   loading="lazy"
                 />
-                <div className={styles.overlay}>
-                  <div className={styles.overlayContent}>
-                    {project.demoUrl ? (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.overlayLink}
-                        aria-label={`${t('liveDemo')} - ${getProjectTitle(project.id)}`}
-                        onKeyDown={(e) => handleKeyDown(e, () => window.open(project.demoUrl!, '_blank'))}
-                      >
-                        {t('liveDemo')}
-                      </a>
-                    ) : (
-                      <span className={`${styles.overlayLink} ${styles.disabled}`}>
-                        {t('notAvailable')}
-                      </span>
-                    )}
-                    {project.codeUrl ? (
-                      <a
-                        href={project.codeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.overlayLink}
-                        aria-label={`${t('sourceCode')} - ${getProjectTitle(project.id)}`}
-                        onKeyDown={(e) => handleKeyDown(e, () => window.open(project.codeUrl!, '_blank'))}
-                      >
-                        {t('sourceCode')}
-                      </a>
-                    ) : (
-                      <span className={`${styles.overlayLink} ${styles.disabled}`}>
-                        {t('notAvailable')}
-                      </span>
-                    )}
-                  </div>
-                </div>
+                <div className={styles.overlay}><span>{project.id === 1 ? '01 / flagship case' : `0${project.id} / project`}</span></div>
               </div>
-              
+
               <div className={styles.cardContent}>
+                <div className={styles.cardEyebrow}>{project.id === 1 ? t('projectRole') : t('projectBuild')}</div>
                 <h3 className={styles.projectTitle}>
                   {getProjectTitle(project.id)}
                 </h3>
-                
+
+                {project.id === 1 && <div className={styles.featuredFacts}>
+                  <div><span>{t('projectTypeLabel')}</span><strong>{t('projectTypeValue')}</strong></div>
+                  <div><span>{t('projectScopeLabel')}</span><strong>{t('projectScopeValue')}</strong></div>
+                  <div><span>{t('projectStatusLabel')}</span><strong>{t('projectStatusValue')}</strong></div>
+                </div>}
+
                 <p className={styles.projectDescription}>
                   {getProjectDescription(project.id)}
                 </p>
-                
-                <div 
+
+                <div
                   className={styles.technologies}
                   role="list"
                   aria-label="Tecnologias utilizadas"
@@ -116,7 +88,7 @@ const Projects: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className={styles.cardActions}>
                   {project.demoUrl ? (
                     <a
@@ -126,7 +98,7 @@ const Projects: React.FC = () => {
                       className={`${styles.button} ${styles.primaryButton}`}
                       aria-label={`${t('liveDemo')} - ${getProjectTitle(project.id)}`}
                     >
-                      {t('liveDemo')}
+                      <FiArrowUpRight aria-hidden="true" /> {t('liveDemo')}
                     </a>
                   ) : (
                     <button
@@ -145,7 +117,7 @@ const Projects: React.FC = () => {
                       className={`${styles.button} ${styles.secondaryButton}`}
                       aria-label={`${t('sourceCode')} - ${getProjectTitle(project.id)}`}
                     >
-                      {t('sourceCode')}
+                      <FiCode aria-hidden="true" /> {t('sourceCode')}
                     </a>
                   ) : (
                     <button

@@ -3,17 +3,11 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { socialLinks } from '../../data/portfolio';
 import styles from './Contact.module.css';
+import ProjectField from '../background/ProjectField';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollAnimation();
-
-  const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      action();
-    }
-  };
 
   const handleEmail = () => {
     const emailAddress = "victor.azam10@gmail.com";
@@ -37,6 +31,7 @@ const Contact: React.FC = () => {
       ref={ref}
       aria-labelledby="contact-title"
     >
+      <div className={styles.backgroundWrapper}><ProjectField /></div>
       <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
         <h2 id="contact-title" className={styles.title}>
           {t('contactTitle')}

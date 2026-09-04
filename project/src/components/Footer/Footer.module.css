@@ -1,22 +1,24 @@
 .footer {
-  background-color: #0f172a;
-  color: white;
-  padding: 2rem 0;
-  border-top: 1px solid #475569;
+  background-color: var(--ink);
+  color: var(--muted);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .copyright {
   font-size: 0.875rem;
   margin: 0;
   line-height: 1.5;
-  color: #94a3b8;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
 }
 
 /* Tablet styles */

@@ -8,6 +8,7 @@ import alita from '../assets/alita.png'
 import editor from '../assets/editor.png'
 import apae from '../assets/apae.png'
 import bgbj from '../assets/bjtech.png'
+import barbereasy from '../assets/barbereasy-capa.png'
 
 export const Skills = [
   // Front-End
@@ -64,34 +65,41 @@ export const education = [
 export const projects = [
   {
     id: 1,
+    image: barbereasy,
+    technologies: ['PHP', 'Laravel', 'Filament', 'React Native', 'Expo', 'PostGreSQL', 'DigitalOcean'],
+    demoUrl: 'https://www.barbereasy.com.br' as string | null,
+    codeUrl: null,
+  },
+  {
+    id: 2,
     image: chamada,
     technologies: ['React', 'TypeScript', 'Firebase'],
     demoUrl: 'https://buja23.github.io/ChamadaDigital-Jiu-view/students' as string | null,
     codeUrl: 'https://github.com/buja23/ChamadaDigital-Jiu-view' as string | null,
   },
   {
-    id: 2,
+    id: 3,
     image: alita,
     technologies: ['Gamemaker 2', 'GML', 'Piskel'],
     demoUrl: null,
     codeUrl: null,
   },
   {
-    id: 3,
+    id: 4,
     image: editor,
     technologies: ['Vue', 'ffmpeg', 'Electron', 'Figma'],
     demoUrl: null,
     codeUrl: null,
   },
    {
-    id: 4,
+    id: 5,
     image: apae,
     technologies: ['PHP', 'MySQL'],
     demoUrl: null,
     codeUrl: 'https://github.com/JoaoPCisilo/APAE' as string | null,
   },
    {
-    id: 5,
+    id: 6,
     image: bgbj,
     technologies: ['React', 'Node', 'MongoDB'],
     demoUrl: null,
@@ -112,7 +120,7 @@ export const socialLinks = [
   },
   {
     name: 'Email',
-    url: 'victor.azam10@gmail.com',
+    url: 'mailto:victor.azam10@gmail.com',
     icon: <MdEmail />,
   },
 ];
