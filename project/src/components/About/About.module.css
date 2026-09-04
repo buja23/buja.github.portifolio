@@ -20,9 +20,8 @@
 .groupLabel { display: block; color: var(--signal); margin-bottom: 0.8rem; }
 .skillsGrid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .skillItem { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.7rem; border: 1px solid var(--line); background: rgba(16, 20, 23, 0.76); color: var(--muted); transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease; }
-.skillItem:hover { color: var(--text); border-color: var(--acid); transform: translateY(-2px); }
 .skillIcon { display: inline-flex; color: var(--signal); font-size: 1rem; }
-.skillItem:hover .skillIcon { color: var(--acid); }
 .skillName { font-family: var(--font-mono); font-size: 0.68rem; }
+@media (hover: hover) and (pointer: fine) { .skillItem:hover { color: var(--text); border-color: var(--acid); transform: translateY(-2px); } .skillItem:hover .skillIcon { color: var(--acid); } }
 @media (max-width: 700px) { .heading { display: block; } .headingTag { display: block; margin-top: 1.2rem; } .content { grid-template-columns: 1fr; gap: 3rem; } }
 @media (prefers-reduced-motion: reduce) { .container, .skillItem { transition: none; } .skillItem:hover { transform: none; } }

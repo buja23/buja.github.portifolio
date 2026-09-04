@@ -1,210 +1,113 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
 import { useLanguage } from '../../contexts/LanguageContext';
 import styles from './Header.module.css';
+
+type NavItem = { id: string; labelKey: string };
+
+const navItems: NavItem[] = [
+  { id: 'home', labelKey: 'home' },
+  { id: 'about', labelKey: 'about' },
+  { id: 'process', labelKey: 'processTitle' },
+  { id: 'education', labelKey: 'education' },
+  { id: 'projects', labelKey: 'projects' },
+  { id: 'contact', labelKey: 'contact' },
+];
 
 const Header: React.FC = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    const sections = navItems
+      .map(({ id }) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      const activationOffset = Math.min(window.innerHeight * 0.45, 320);
+      const currentSection = sections.reduce<HTMLElement | null>((current, section) => {
+        if (section.getBoundingClientRect().top <= activationOffset) return section;
+        return current;
+      }, null);
+
+      if (currentSection) setActiveSection(currentSection.id);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen]);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    menuButtonRef.current?.focus();
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      action();
-    }
-  };
+  const links = navItems.map((item) => (
+    <li key={item.id}>
+      <a
+        href={`#${item.id}`}
+        className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
+        aria-current={activeSection === item.id ? 'location' : undefined}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        {t(item.labelKey)}
+      </a>
+    </li>
+  ));
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <nav className={styles.nav} role="navigation" aria-label={t('menuToggle')}>
+      <nav className={styles.nav} aria-label={t('navigationLabel')}>
         <div className={styles.container}>
-          <div className={styles.logo}>
-            <button
-              onClick={() => scrollToSection('home')}
-              className={styles.logoButton}
-              aria-label={t('home')}
-            >
-              <span className={styles.logoText}>Azambuja</span>
-            </button>
-          </div>
+          <a href="#home" className={styles.logoButton} aria-label={t('home')}>
+            <span className={styles.logoText}>Azambuja</span>
+          </a>
 
-          {/* Desktop Navigation */}
           <div className={styles.desktopNav}>
-            <ul className={styles.navList}>
-              <li>
-                <button
-                  onClick={() => scrollToSection('home')}
-                  onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('home'))}
-                  className={styles.navLink}
-                  tabIndex={0}
-                >
-                  {t('home')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('about')}
-                  onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('about'))}
-                  className={styles.navLink}
-                  tabIndex={0}
-                >
-                  {t('about')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('education')}
-                  onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('education'))}
-                  className={styles.navLink}
-                  tabIndex={0}
-                >
-                  {t('education')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('process')}
-                  className={styles.navLink}
-                >
-                  {t('processTitle')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('projects')}
-                  onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('projects'))}
-                  className={styles.navLink}
-                  tabIndex={0}
-                >
-                  {t('projects')}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('contact'))}
-                  className={styles.navLink}
-                  tabIndex={0}
-                >
-                  {t('contact')}
-                </button>
-              </li>
-            </ul>
+            <ul className={styles.navList}>{links}</ul>
           </div>
 
           <div className={styles.controls}>
-            {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              onKeyDown={(e) => handleKeyDown(e, toggleLanguage)}
-              className={styles.languageToggle} // Aplica o estilo do botão
-              aria-label={t('languageToggle')}
-              tabIndex={0}
-            >
+            <button type="button" onClick={toggleLanguage} className={styles.languageToggle} aria-label={t('languageToggle')}>
               <span className={styles.languageCode}>{language === 'pt' ? 'EN' : 'PT'}</span>
             </button>
-
-            {/* Mobile Menu Toggle */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              onKeyDown={(e) => handleKeyDown(e, () => setIsMenuOpen(!isMenuOpen))}
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
               className={styles.menuToggle}
               aria-label={t('menuToggle')}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
-              tabIndex={0}
             >
-              <span className={styles.hamburger}></span>
-              <span className={styles.hamburger}></span>
-              <span className={styles.hamburger}></span>
+              {isMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <div
-          id="mobile-menu"
-          className={`${styles.mobileNav} ${isMenuOpen ? styles.mobileNavOpen : ''}`}
-          aria-hidden={!isMenuOpen}
-        >
-          <ul className={styles.mobileNavList}>
-            <li>
-              <button
-                onClick={() => scrollToSection('home')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('home'))}
-                className={styles.mobileNavLink}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                {t('home')}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection('about')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('about'))}
-                className={styles.mobileNavLink}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                {t('about')}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection('education')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('education'))}
-                className={styles.mobileNavLink}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                {t('education')}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection('process')}
-                className={styles.mobileNavLink}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                {t('processTitle')}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection('projects')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('projects'))}
-                className={styles.mobileNavLink}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                {t('projects')}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection('contact')}
-                onKeyDown={(e) => handleKeyDown(e, () => scrollToSection('contact'))}
-                className={styles.mobileNavLink}
-                tabIndex={isMenuOpen ? 0 : -1}
-              >
-                {t('contact')}
-              </button>
-            </li>
-          </ul>
+        <div id="mobile-menu" className={`${styles.mobileNav} ${isMenuOpen ? styles.mobileNavOpen : ''}`} hidden={!isMenuOpen}>
+          <ul className={styles.mobileNavList}>{links}</ul>
+          <button type="button" className={styles.mobileClose} onClick={closeMenu}>{t('closeMenu')}</button>
         </div>
       </nav>
     </header>

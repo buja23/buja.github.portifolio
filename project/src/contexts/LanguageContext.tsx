@@ -16,6 +16,8 @@ const translations = {
     education: 'Formação',
     projects: 'Projetos',
     contact: 'Contato',
+    navigationLabel: 'Navegação principal',
+    closeMenu: 'Fechar menu',
 
     // Hero Section
     heroRole: 'Desenvolvedor Full-stack',
@@ -111,6 +113,8 @@ const translations = {
     education: 'Education',
     projects: 'Projects',
     contact: 'Contact',
+    navigationLabel: 'Main navigation',
+    closeMenu: 'Close menu',
 
     // Hero Section
     heroRole: 'Full-stack Developer',
