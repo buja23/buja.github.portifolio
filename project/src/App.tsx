@@ -1,4 +1,5 @@
 import { LanguageProvider } from './contexts/LanguageContext';
+import MouseSpotlightBackground from './components/background/MouseSpotlightBackground';
 import Header from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import ProofStrip from './components/ProofStrip';
@@ -12,7 +13,8 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <LanguageProvider>
-      <div className="App">
+      <MouseSpotlightBackground />
+      <div className="relative z-0">
         <Header />
         <main>
           <Hero />

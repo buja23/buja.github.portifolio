@@ -1,64 +1,94 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { Skills } from '../../data/portfolio';
-import ProcessField from '../background/ProcessField';
+import FloatingSkills from './FloatingSkills';
 import { FiArrowUpRight } from 'react-icons/fi';
-import styles from './About.module.css';
-
-const skillGroups = [
-  { key: 'frontEnd', names: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue', 'Next.js', 'Material UI'] },
-  { key: 'backEnd', names: ['Node.js', 'Express.js', 'Python', 'PHP', 'Laravel'] },
-  { key: 'dataTools', names: ['MySQL', 'MongoDB', 'Git', 'GitHub', 'Figma', 'FFmpeg'] },
-];
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section 
-      id="about" 
-      className={styles.about}
-      ref={ref}
+    <section
+      id="about"
+      className="relative py-32 overflow-hidden"
       aria-labelledby="about-title"
     >
-      <div className={styles.backgroundWrapper}>
-        <ProcessField />
-      </div>
-      <div className={`${styles.container} ${isVisible ? styles.visible : ''}`}>
-        <div className={styles.heading}>
+      <div className="max-w-\[1440px\] mx-auto px-6 md:px-16">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="flex justify-between items-end gap-8 pb-8 border-b border-cyan/20 mb-16"
+        >
           <div>
-            <span className="eyebrow">03 / the_operator</span>
-            <h2 id="about-title" className={styles.title}>{t('aboutTitle')}</h2>
+            <span className="text-cyan font-mono text-xs tracking-widest uppercase">03 / the_operator</span>
+            <h2 id="about-title" className="text-4xl md:text-5xl font-bold mt-2 tracking-tight text-white">
+              {t('aboutTitle')}
+            </h2>
           </div>
-          <span className={styles.headingTag}>{t('aboutTag')}</span>
-        </div>
+          <span className="hidden md:inline-block font-mono text-xs text-gray-600 uppercase tracking-widest">
+            {t('aboutTag')}
+          </span>
+        </motion.div>
 
-        <div className={styles.content}>
-          <div className={styles.story}>
-            <span className={styles.storyLabel}>{t('aboutLabel')}</span>
-            <p className={styles.lead}>{t('aboutLead')}</p>
-            <p className={styles.text}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left: Story */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex flex-col gap-6"
+          >
+            <span className="inline-block px-3 py-1 bg-cyan/10 border border-cyan/20 text-cyan font-mono text-xs w-max rounded-sm">
+              {t('aboutLabel')}
+            </span>
+
+            <p className="text-2xl md:text-3xl text-white font-light leading-snug">
+              Sou estudante de Análise e Desenvolvimento de Sistemas, focado em transformar lógica em produtos reais e eficientes.
+            </p>
+
+            <p className="text-gray-400 leading-relaxed">
               {t('aboutDescription')}
             </p>
-            <a className={styles.storyLink} href="#contact">{t('aboutCta')} <FiArrowUpRight aria-hidden="true" /></a>
-          </div>
-          
-          <div className={styles.skillsSection}>
-            <h3 className={styles.skillsTitle}>{t('mainSkills')}</h3>
-            <div className={styles.skillGroups}>
-              {skillGroups.map((group) => {
-                const groupSkills = Skills.filter((skill) => group.names.includes(skill.name));
-                return <div className={styles.skillGroup} key={group.key}>
-                  <span className={styles.groupLabel}>{t(`skillGroup${group.key}`)}</span>
-                  <div className={styles.skillsGrid} role="list">
-                    {groupSkills.map((skill) => <div key={skill.name} className={styles.skillItem} role="listitem"><span className={styles.skillIcon} aria-hidden="true">{skill.icon}</span><span className={styles.skillName}>{skill.name}</span></div>)}
-                  </div>
-                </div>;
-              })}
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 font-mono text-sm text-cyan hover:text-white transition-colors mt-2 w-max"
+            >
+              {t('aboutCta')} <FiArrowUpRight className="animate-pulse" />
+            </a>
+
+            {/* Mini stats */}
+            <div className="grid grid-cols-3 gap-4 pt-6 mt-2 border-t border-white/5">
+              {[
+                { value: "15+", label: "Tecnologias" },
+                { value: "3+", label: "Anos estudando" },
+                { value: "100%", label: "Comprometimento" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex flex-col">
+                  <span className="text-2xl font-bold text-cyan text-glow">{stat.value}</span>
+                  <span className="text-gray-500 text-xs font-mono mt-1 uppercase tracking-wider">{stat.label}</span>
+                </div>
+              ))}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Right: Floating Skill Bubbles */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="glass-glow rounded-2xl min-h-[420px] relative overflow-hidden"
+          >
+            <div className="absolute top-4 left-4 font-mono text-cyan/40 text-[10px] uppercase tracking-widest">
+              skills.interactive()
+            </div>
+            <FloatingSkills />
+          </motion.div>
         </div>
       </div>
     </section>

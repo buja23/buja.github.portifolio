@@ -48,8 +48,6 @@ const ProcessField = () => {
     const draw = (time: number) => {
       const elapsed = (time - start) / 1000;
       context.clearRect(0, 0, width, height);
-      context.fillStyle = '#101417';
-      context.fillRect(0, 0, width, height);
 
       const centerX = width < 700 ? width * 0.78 : width * 0.72;
       const centerY = height * 0.52;

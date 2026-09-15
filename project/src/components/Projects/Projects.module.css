@@ -1,7 +1,9 @@
-.projects { position: relative; isolation: isolate; overflow: hidden; padding: clamp(5rem, 12vw, 10rem) 0; background: #0a0d0e; }
-.backgroundWrapper { position: absolute; inset: 0; z-index: 0; opacity: 0.58; pointer-events: none; }
-.projects::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10, 13, 14, 0.98), rgba(10, 13, 14, 0.88) 48%, rgba(10, 13, 14, 0.7)); pointer-events: none; }
-.container { position: relative; z-index: 1; width: min(100% - 2rem, 1240px); margin: 0 auto; opacity: 0; transform: translateY(22px); transition: opacity 0.8s ease, transform 0.8s ease; }
+/* Projects — fully transparent over global interactive canvas */
+/* Projects — transparent over global interactive canvas */
+.projects { position: relative; isolation: isolate; overflow: hidden; padding: clamp(5rem, 12vw, 10rem) 0; }
+/* Moderate overlay so cards are readable while canvas glows through */
+.projects::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8, 10, 12, 0.78) 0%, rgba(8, 10, 12, 0.72) 100%); pointer-events: none; }
+.container { position: relative; z-index: 2; width: min(100% - 2rem, 1240px); margin: 0 auto; opacity: 0; transform: translateY(22px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .container.visible { opacity: 1; transform: translateY(0); }
 .heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem; }
 .title { margin: 0.8rem 0 0; font-size: clamp(2.4rem, 5vw, 5rem); line-height: 0.95; letter-spacing: -0.06em; font-weight: 600; }

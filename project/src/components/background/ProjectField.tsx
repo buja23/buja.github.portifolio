@@ -39,11 +39,10 @@ const ProjectField = () => {
     const draw = (time: number) => {
       const elapsed = (time - start) / 1000;
       context.clearRect(0, 0, width, height);
-      context.fillStyle = '#0a0d0e';
-      context.fillRect(0, 0, width, height);
 
       const spacing = width < 700 ? 58 : 76;
-      const scan = reducedMotion ? 0.5 : ((elapsed * 44) % (height + 160)) - 80;
+      // Increased scan line speed from 44 to 70
+      const scan = reducedMotion ? 0.5 : ((elapsed * 100) % (height + 160)) - 80;
       const rows = Math.ceil(height / spacing) + 2;
       const cols = Math.ceil(width / spacing) + 2;
 

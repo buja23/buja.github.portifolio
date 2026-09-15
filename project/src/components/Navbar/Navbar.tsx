@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useLanguage } from '../../contexts/LanguageContext';
-import styles from './Header.module.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type NavItem = { id: string; labelKey: string };
 
@@ -57,59 +57,79 @@ const Header: React.FC = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    menuButtonRef.current?.focus();
-  };
-
-  const links = navItems.map((item) => (
-    <li key={item.id}>
-      <a
-        href={`#${item.id}`}
-        className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
-        aria-current={activeSection === item.id ? 'location' : undefined}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        {t(item.labelKey)}
-      </a>
-    </li>
-  ));
-
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <nav className={styles.nav} aria-label={t('navigationLabel')}>
-        <div className={styles.container}>
-          <a href="#home" className={styles.logoButton} aria-label={t('home')}>
-            <span className={styles.logoText}>Azambuja</span>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+      <div className={`mx-auto w-[95%] max-w-6xl transition-all duration-300 rounded-full ${isScrolled ? 'glass-glow px-6 py-3' : 'px-2 py-2'}`}>
+        <nav className="flex items-center justify-between" aria-label={t('navigationLabel')}>
+          <a href="#home" className="text-xl font-bold font-sans tracking-tight text-white hover:text-cyan transition-colors" aria-label={t('home')}>
+            Azambuja<span className="text-cyan">.</span>
           </a>
 
-          <div className={styles.desktopNav}>
-            <ul className={styles.navList}>{links}</ul>
+          <div className="hidden md:block">
+            <ul className="flex items-center gap-6">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`font-mono text-xs tracking-widest uppercase transition-all duration-300 relative ${activeSection === item.id ? 'text-cyan text-glow' : 'text-gray-400 hover:text-cyan'}`}
+                    aria-current={activeSection === item.id ? 'location' : undefined}
+                  >
+                    {t(item.labelKey)}
+                    {activeSection === item.id && (
+                      <motion.div layoutId="navbar-indicator" className="absolute -bottom-2 left-0 w-full h-[2px] bg-cyan shadow-[0_0_8px_rgba(0,212,255,0.8)]" />
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className={styles.controls}>
-            <button type="button" onClick={toggleLanguage} className={styles.languageToggle} aria-label={t('languageToggle')}>
-              <span className={styles.languageCode}>{language === 'pt' ? 'EN' : 'PT'}</span>
+          <div className="flex items-center gap-4">
+            <button type="button" onClick={toggleLanguage} className="font-mono text-xs text-gray-300 border border-white/10 px-2 py-1 rounded hover:border-cyan hover:text-cyan transition-colors" aria-label={t('languageToggle')}>
+              {language === 'pt' ? 'EN' : 'PT'}
             </button>
             <button
               ref={menuButtonRef}
               type="button"
               onClick={() => setIsMenuOpen((open) => !open)}
-              className={styles.menuToggle}
+              className="md:hidden text-gray-300 hover:text-cyan transition-colors"
               aria-label={t('menuToggle')}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
             >
-              {isMenuOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+              {isMenuOpen ? <FiX size={24} aria-hidden="true" /> : <FiMenu size={24} aria-hidden="true" />}
             </button>
           </div>
-        </div>
+        </nav>
+      </div>
 
-        <div id="mobile-menu" className={`${styles.mobileNav} ${isMenuOpen ? styles.mobileNavOpen : ''}`} hidden={!isMenuOpen}>
-          <ul className={styles.mobileNavList}>{links}</ul>
-          <button type="button" className={styles.mobileClose} onClick={closeMenu}>{t('closeMenu')}</button>
-        </div>
-      </nav>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            id="mobile-menu" 
+            className="md:hidden absolute top-full left-0 w-full p-4"
+          >
+            <div className="glass-glow rounded-xl p-6">
+              <ul className="flex flex-col gap-6">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      className={`block font-mono text-sm tracking-wider uppercase transition-colors ${activeSection === item.id ? 'text-cyan text-glow' : 'text-gray-400'}`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {t(item.labelKey)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
