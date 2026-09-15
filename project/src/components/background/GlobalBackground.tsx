@@ -3,9 +3,14 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 
+// react-tsparticles (v2) types its engine as `tsparticles-engine`, while the
+// installed `tsparticles` (v4) ships `@tsparticles/engine`. The two generation
+// types are structurally different, so bridge them explicitly here.
+type FullEngine = Parameters<typeof loadFull>[0];
+
 const GlobalBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
+    await loadFull(engine as unknown as FullEngine);
   }, []);
 
   return (

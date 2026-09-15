@@ -3,7 +3,8 @@ import { motion, useAnimation } from "framer-motion";
 import {
   SiReact, SiNodedotjs, SiTypescript, SiPhp, SiMongodb,
   SiTailwindcss, SiJavascript, SiPython, SiMysql, SiGit,
-  SiLaravel, SiVuedotjs, SiNextdotjs, SiFigma, SiGithub
+  SiLaravel, SiVuedotjs, SiNextdotjs, SiFigma, SiGithub,
+  SiWordpress
 } from "react-icons/si";
 
 const SKILLS = [
@@ -18,6 +19,7 @@ const SKILLS = [
   { icon: SiMysql,       name: "MySQL",       color: "#4479A1" },
   { icon: SiGit,         name: "Git",         color: "#F1502F" },
   { icon: SiLaravel,     name: "Laravel",     color: "#FF2D20" },
+  { icon: SiWordpress,   name: "WordPress",   color: "#21759B" },
   { icon: SiVuedotjs,    name: "Vue.js",      color: "#42B883" },
   { icon: SiNextdotjs,   name: "Next.js",     color: "#FFFFFF" },
   { icon: SiFigma,       name: "Figma",       color: "#A259FF" },
@@ -32,7 +34,7 @@ const floatVariants = (index: number) => ({
     transition: {
       duration: 3 + (index % 5) * 0.6,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
       delay: index * 0.2,
     },
   },
@@ -121,7 +123,7 @@ const Bubble = ({ skill, index }: BubbleProps) => {
 
 const FloatingSkills = () => (
   <div className="w-full h-full flex items-center justify-center">
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 md:gap-8 p-8">
+    <div className="grid grid-cols-3 sm:grid-cols-4 gap-6 md:gap-8 p-8">
       {SKILLS.map((skill, i) => (
         <Bubble key={skill.name} skill={skill} index={i} />
       ))}
@@ -130,4 +132,3 @@ const FloatingSkills = () => (
 );
 
 export default FloatingSkills;
-

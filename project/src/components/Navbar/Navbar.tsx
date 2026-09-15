@@ -14,6 +14,19 @@ const navItems: NavItem[] = [
   { id: 'contact', labelKey: 'contact' },
 ];
 
+const SCROLLED_OFFSET = 50;
+const ACTIVATION_OFFSET_RATIO = 0.45;
+const ACTIVATION_OFFSET_MAX = 320;
+const BOTTOM_EPSILON = 2;
+
+const desktopLinkClass =
+  'relative font-mono text-xs tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5 ' +
+  'after:absolute after:-inset-x-2 after:-inset-y-1 after:rounded-md after:bg-cyan/10 after:opacity-0 ' +
+  'after:transition-opacity after:duration-300 after:pointer-events-none hover:after:opacity-100';
+const desktopLinkIdleClass = 'text-gray-400 hover:text-cyan hover:text-glow';
+const desktopLinkActiveClass = 'text-cyan text-glow hover:text-white';
+const mobileLinkClass = 'block font-mono text-sm tracking-wider uppercase transition-colors hover:text-cyan';
+
 const Header: React.FC = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,9 +40,21 @@ const Header: React.FC = () => {
       .filter((section): section is HTMLElement => Boolean(section));
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > SCROLLED_OFFSET);
 
-      const activationOffset = Math.min(window.innerHeight * 0.45, 320);
+      const isAtPageBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - BOTTOM_EPSILON;
+      const lastSection = sections[sections.length - 1];
+
+      if (isAtPageBottom && lastSection) {
+        setActiveSection(lastSection.id);
+        return;
+      }
+
+      const activationOffset = Math.min(
+        window.innerHeight * ACTIVATION_OFFSET_RATIO,
+        ACTIVATION_OFFSET_MAX
+      );
       const currentSection = sections.reduce<HTMLElement | null>((current, section) => {
         if (section.getBoundingClientRect().top <= activationOffset) return section;
         return current;
@@ -40,8 +65,10 @@ const Header: React.FC = () => {
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 
@@ -57,6 +84,11 @@ const Header: React.FC = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
+  const handleNavLinkClick = (id: string) => {
+    setActiveSection(id);
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
       <div className={`mx-auto w-[95%] max-w-6xl transition-all duration-300 rounded-full ${isScrolled ? 'glass-glow px-6 py-3' : 'px-2 py-2'}`}>
@@ -71,7 +103,8 @@ const Header: React.FC = () => {
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className={`font-mono text-xs tracking-widest uppercase transition-all duration-300 relative ${activeSection === item.id ? 'text-cyan text-glow' : 'text-gray-400 hover:text-cyan'}`}
+                    onClick={() => handleNavLinkClick(item.id)}
+                    className={`${desktopLinkClass} ${activeSection === item.id ? desktopLinkActiveClass : desktopLinkIdleClass}`}
                     aria-current={activeSection === item.id ? 'location' : undefined}
                   >
                     {t(item.labelKey)}
@@ -118,8 +151,8 @@ const Header: React.FC = () => {
                   <li key={item.id}>
                     <a
                       href={`#${item.id}`}
-                      className={`block font-mono text-sm tracking-wider uppercase transition-colors ${activeSection === item.id ? 'text-cyan text-glow' : 'text-gray-400'}`}
-                      onClick={() => setIsMenuOpen(false)}
+                      className={`${mobileLinkClass} ${activeSection === item.id ? 'text-cyan text-glow' : 'text-gray-400'}`}
+                      onClick={() => handleNavLinkClick(item.id)}
                     >
                       {t(item.labelKey)}
                     </a>

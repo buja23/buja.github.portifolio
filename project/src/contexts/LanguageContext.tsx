@@ -21,7 +21,7 @@ const translations = {
 
     // Hero Section
     heroRole: 'Desenvolvedor Full-stack',
-    heroSubtitle: 'Experiência em React, Node.js, PHP, MongoDB e Firebase',
+    heroSubtitle: 'Experiência em React, Node.js, PHP, WordPress, MongoDB e Firebase',
     availableStatus: 'Disponível para novos projetos',
     viewProjects: 'Explorar projetos',
     heroNote: 'Construindo produtos digitais com código, curiosidade e intenção.',
@@ -39,7 +39,7 @@ const translations = {
     aboutTag: 'produto / interface / código',
     aboutLabel: 'perfil.md',
     aboutLead: 'Eu transformo ideias e necessidades reais em produtos digitais que as pessoas conseguem usar.',
-    aboutDescription: 'Desenvolvedor Full-stack e estudante de Análise de Sistemas, com experiência na criação de aplicações web modernas. Sou focado no ecossistema JavaScript, utilizando React, Node.js, MongoDB e Firebase para transformar ideias em soluções eficientes.',
+    aboutDescription: 'Desenvolvedor Full-stack e estudante de Análise de Sistemas, com experiência na criação de aplicações web modernas. Sou focado no ecossistema JavaScript, utilizando React, Node.js, WordPress, MongoDB e Firebase para transformar ideias em soluções eficientes.',
     mainSkills: 'Principais Habilidades',
     aboutCta: 'Vamos conversar sobre uma ideia',
     skillGroupfrontEnd: 'Front-end',
@@ -91,6 +91,8 @@ const translations = {
     project5Description: 'Participei de um projeto de desenvolvimento em grupo, realizado através de uma parceria entre a faculdade e a APAE, com o objetivo de criar um sistema para otimização do controle de insumos da instituição.',
     project6Title: 'Sistema de Controle de Vendas',
     project6Description: 'Sistema de controle de vendas desenvolvido para auxiliar no gerenciamento de vendas e estoque de uma loja. O sistema permite o cadastro de produtos, clientes e vendas, além de gerar relatórios e gráficos para análise de desempenho.',
+    project7Title: 'Alita - Jogo 2D',
+    project7Description: 'Jogo 2D desenvolvido como projeto pessoal, com a lógica e a movimentação escritas em GML no GameMaker 2 e sprites criados no Piskel. O projeto foi feito para praticar programação de jogos, colisão, animação e design de fases.',
     // Contact Section
     contactTitle: 'Vamos Conversar?',
     contactDescription: 'Estou sempre aberto a novos desafios e oportunidades. Entre em contato!',
@@ -118,7 +120,7 @@ const translations = {
 
     // Hero Section
     heroRole: 'Full-stack Developer',
-    heroSubtitle: 'Experienced in React, Node.js, PHP, MongoDB, and Firebase.',
+    heroSubtitle: 'Experienced in React, Node.js, PHP, WordPress, MongoDB, and Firebase.',
     availableStatus: 'Available for new projects',
     viewProjects: 'Explore projects',
     heroNote: 'Building digital products with code, curiosity, and intent.',
@@ -136,7 +138,7 @@ const translations = {
     aboutTag: 'product / interface / code',
     aboutLabel: 'profile.md',
     aboutLead: 'I turn real ideas and needs into digital products people can actually use.',
-    aboutDescription: 'Full-stack Developer and Systems Analysis student with experience in building modern web applications. I am focused on the JavaScript ecosystem, using React, Node.js, MongoDB, and Firebase to turn ideas into efficient solutions.',
+    aboutDescription: 'Full-stack Developer and Systems Analysis student with experience in building modern web applications. I am focused on the JavaScript ecosystem, using React, Node.js, WordPress, MongoDB, and Firebase to turn ideas into efficient solutions.',
     mainSkills: 'Main Skills',
     aboutCta: 'Let’s talk about an idea',
     skillGroupfrontEnd: 'Front-end',
@@ -188,6 +190,8 @@ const translations = {
     project5Description: 'I participated in a group development project, conducted through a partnership between the university and APAE, with the goal of creating a system to optimize the institutions supply management.',
     project6Title: 'Sales Control System',
     project6Description: 'A sales control system developed to assist in managing a stores sales and inventory. The system allows for registering products, customers, and sales, in addition to generating reports and charts for performance analysis.',
+    project7Title: 'Alita - 2D Game',
+    project7Description: 'A 2D game built as a personal project, with logic and movement written in GML on GameMaker 2 and sprites created in Piskel. The project was made to practice game programming, collision, animation, and level design.',
 
     // Contact Section
     contactTitle: "Let's Talk?",

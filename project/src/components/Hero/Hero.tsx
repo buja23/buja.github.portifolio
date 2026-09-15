@@ -10,13 +10,14 @@ import Tilt from 'react-parallax-tilt';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref } = useScrollAnimation();
 
-  const typewriterStrings = [
-    '> locate developer --name "Victor Azambuja"',
-    '> status: estudante_ativo && buscando_estagio_ou_jr',
-    '> skills: full_stack_specialist'
-  ];
+const typewriterStrings = [
+  'const dev = "Victor Azambuja";',
+  'let cargo = "Desenvolvedor Full-Stack";',
+  'const stack = ["PHP", "Laravel", "React", "Node.js", "WordPress"];',
+  'status.set("Disponível para Júnior");'
+];
 
   const typedText = useTypewriter({
     strings: typewriterStrings,

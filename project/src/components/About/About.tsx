@@ -65,7 +65,7 @@ const About: React.FC = () => {
             <div className="grid grid-cols-3 gap-4 pt-6 mt-2 border-t border-white/5">
               {[
                 { value: "15+", label: "Tecnologias" },
-                { value: "3+", label: "Anos estudando" },
+                { value: "5+", label: "Anos estudando" },
                 { value: "100%", label: "Comprometimento" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">

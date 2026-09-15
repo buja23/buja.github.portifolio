@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const ProofStrip: React.FC = () => {
   const { t } = useLanguage();
   const items = [
-    ['01', t('proofStack'), 'React / Node / TypeScript'],
+    ['01', t('proofStack'), 'React / Node / WordPress / TypeScript'],
     ['02', t('proofFocus'), t('proofFocusValue')],
     ['03', t('proofBase'), 'Presidente Prudente, BR'],
     ['04', t('proofStatus'), t('availableStatus')],

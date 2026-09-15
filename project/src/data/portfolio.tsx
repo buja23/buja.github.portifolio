@@ -1,5 +1,5 @@
 import { IoLogoJavascript, IoLogoHtml5, IoLogoCss3, IoLogoNodejs, IoLogoPython, IoLogoVue } from 'react-icons/io5';
-import { SiTypescript, SiNextdotjs, SiMongodb, SiMui, SiFigma, SiPhp, SiMysql, SiExpress, SiFfmpeg } from 'react-icons/si';
+import { SiTypescript, SiNextdotjs, SiMongodb, SiMui, SiFigma, SiPhp, SiMysql, SiExpress, SiFfmpeg, SiWordpress } from 'react-icons/si';
 import { FaReact, FaLaravel, FaGitAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
 
@@ -27,6 +27,7 @@ export const Skills = [
   { name: 'Python', icon: <IoLogoPython /> },
   { name: 'PHP', icon: <SiPhp /> },
   { name: 'Laravel', icon: <FaLaravel /> },
+  { name: 'WordPress', icon: <SiWordpress /> },
 
   // Banco de Dados
   { name: 'MySQL', icon: <SiMysql /> },

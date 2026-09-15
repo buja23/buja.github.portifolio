@@ -52,7 +52,7 @@ const ZeroGravitySkills: React.FC = () => {
 
     // Skill bubbles
     const skillNames = Skills.slice(0, 15).map(s => s.name);
-    const bubbles = skillNames.map((name, i) => {
+    const bubbles = skillNames.map((name) => {
       const radius = 35 + Math.random() * 15;
       const x = Math.random() * (width - radius * 2) + radius;
       const y = Math.random() * (height - radius * 2) + radius;
@@ -166,4 +166,3 @@ const ZeroGravitySkills: React.FC = () => {
 };
 
 export default ZeroGravitySkills;
-
