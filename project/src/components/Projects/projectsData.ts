@@ -27,6 +27,12 @@ export const projects: Project[] = [
       { label: 'Frontend', url: 'https://github.com/Diogordo08/barber-mobile/tree/main' },
     ],
     demoNoticeKey: 'project1DemoNotice',
+    demoCredentials: {
+      email: 'demo@barbearia.app',
+      password: 'Demo@12345',
+      barbershop: 'Barbearia Prime Demo',
+      slug: 'barbearia-demo',
+    },
     role: 'Desenvolvedor Full-Stack',
     type: 'SaaS Comercial',
   },

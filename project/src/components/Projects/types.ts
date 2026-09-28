@@ -11,6 +11,7 @@ export type Project = {
   codeUrl: string | null;
   codeLinks?: { label: string; url: string }[];
   demoNoticeKey?: string;
+  demoCredentials?: { email: string; password: string; barbershop: string; slug: string };
   role: string;
   type: string;
 };

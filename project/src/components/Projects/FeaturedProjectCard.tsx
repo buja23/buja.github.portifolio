@@ -55,6 +55,25 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ project }) =>
 
           <ProjectTechList technologies={project.technologies} />
 
+          {project.demoCredentials && (
+            <div className="rounded-lg border border-cyan/25 bg-cyan/5 p-4 text-sm">
+              <h4 className="mb-3 font-semibold text-cyan">{t('demoAccess')}</h4>
+              <dl className="space-y-2">
+                {[
+                  [t('demoEmail'), project.demoCredentials.email],
+                  [t('demoPassword'), project.demoCredentials.password],
+                  [t('demoBarbershop'), project.demoCredentials.barbershop],
+                  ['Slug', project.demoCredentials.slug],
+                ].map(([label, value]) => (
+                  <div key={label} className="flex flex-wrap gap-x-2 gap-y-1">
+                    <dt className="text-gray-400">{label}:</dt>
+                    <dd className="min-w-0 break-all font-mono text-white select-all">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
+
           {project.demoNoticeKey && (
             <p className="rounded-lg border border-amber-400/25 bg-amber-400/10 p-4 text-sm leading-relaxed text-amber-200 whitespace-pre-line">
               <span aria-hidden="true">⚠ </span>
