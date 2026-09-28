@@ -55,8 +55,15 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ project }) =>
 
           <ProjectTechList technologies={project.technologies} />
 
+          {project.demoNoticeKey && (
+            <p className="rounded-lg border border-amber-400/25 bg-amber-400/10 p-4 text-sm leading-relaxed text-amber-200 whitespace-pre-line">
+              <span aria-hidden="true">⚠ </span>
+              {t(project.demoNoticeKey)}
+            </p>
+          )}
+
           <div className="pt-2">
-            <ProjectActions title={title} demoUrl={project.demoUrl} codeUrl={project.codeUrl} />
+            <ProjectActions title={title} demoUrl={project.demoUrl} codeUrl={project.codeUrl} codeLinks={project.codeLinks} />
           </div>
         </div>
       </div>

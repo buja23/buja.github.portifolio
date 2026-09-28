@@ -1,15 +1,20 @@
 import React from 'react';
 import { FiArrowUpRight, FiCode } from 'react-icons/fi';
 import { useLanguage } from '../../contexts/LanguageContext';
+import type { Project } from './types';
 
 interface ProjectActionsProps {
   title: string;
   demoUrl: string | null;
   codeUrl: string | null;
+  codeLinks?: Project['codeLinks'];
 }
 
-const ProjectActions: React.FC<ProjectActionsProps> = ({ title, demoUrl, codeUrl }) => {
+const ProjectActions: React.FC<ProjectActionsProps> = ({ title, demoUrl, codeUrl, codeLinks }) => {
   const { t } = useLanguage();
+  const sources = codeLinks?.length
+    ? codeLinks
+    : codeUrl ? [{ label: '', url: codeUrl }] : [];
 
   return (
     <div className="flex flex-wrap gap-3">
@@ -33,18 +38,20 @@ const ProjectActions: React.FC<ProjectActionsProps> = ({ title, demoUrl, codeUrl
         </button>
       )}
 
-      {codeUrl ? (
+      {sources.length > 0 ? sources.map(({ label, url }) => (
         <a
-          href={codeUrl}
+          key={url}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${t('sourceCode')} — ${title}`}
+          aria-label={`${t('sourceCode')}${label ? ` · ${label}` : ''} — ${title}`}
           className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/15 text-gray-300 hover:border-cyan hover:text-cyan font-mono text-xs tracking-wider transition-all duration-300 rounded-sm"
         >
           <FiCode aria-hidden="true" />
           {t('sourceCode')}
+          {label && ` · ${label}`}
         </a>
-      ) : (
+      )) : (
         <button
           disabled
           className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-700 text-gray-600 font-mono text-xs rounded-sm cursor-not-allowed"

@@ -59,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         <ProjectTechList technologies={project.technologies} />
 
         <div className="pt-2 mt-auto">
-          <ProjectActions title={title} demoUrl={project.demoUrl} codeUrl={project.codeUrl} />
+          <ProjectActions title={title} demoUrl={project.demoUrl} codeUrl={project.codeUrl} codeLinks={project.codeLinks} />
         </div>
       </div>
     </motion.article>

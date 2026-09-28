@@ -76,6 +76,7 @@ const translations = {
     projectStatusValue: 'em produção',
     liveDemo: 'Ver Deploy',
     sourceCode: 'Código-fonte',
+    project1DemoNotice: 'Demo hospedada em infraestrutura gratuita.\nO primeiro acesso pode levar alguns segundos devido ao cold start do servidor.\nApós a inicialização, a navegação tende a responder normalmente, porém continua um pouco lenta.',
     notAvailable: 'Não Disponível',
 
     // Project Data
@@ -92,6 +93,8 @@ const translations = {
     project6Title: 'Sistema de Controle de Vendas',
     project6Description: 'Sistema de controle de vendas desenvolvido para auxiliar no gerenciamento de vendas e estoque de uma loja. O sistema permite o cadastro de produtos, clientes e vendas, além de gerar relatórios e gráficos para análise de desempenho.',
     project7Title: 'Alita - Jogo 2D',
+    project8Title: 'IA Recibos — Estudo de SaaS Financeiro',
+    project8Description: 'Estudo em desenvolvimento de uma aplicação financeira com IA generativa para transformar descrições de gastos em transações estruturadas e categorizadas. O frontend utiliza Next.js 16, TypeScript e TanStack Query, com formulários validados por React Hook Form e Zod. A arquitetura prevista inclui uma API NestJS 11 integrada ao Google Gemini, PostgreSQL com Drizzle ORM e webhooks com assinatura HMAC SHA-256 para explorar integrações Open Finance.',
     project7Description: 'Jogo 2D desenvolvido como projeto pessoal, com a lógica e a movimentação escritas em GML no GameMaker 2 e sprites criados no Piskel. O projeto foi feito para praticar programação de jogos, colisão, animação e design de fases.',
     // Contact Section
     contactTitle: 'Vamos Conversar?',
@@ -175,6 +178,7 @@ const translations = {
     projectStatusValue: 'in production',
     liveDemo: 'Live Demo',
     sourceCode: 'Source Code',
+    project1DemoNotice: 'Demo hosted on free infrastructure.\nThe first visit may take a few seconds due to the server’s cold start.\nOnce the server starts, navigation should respond normally, although it remains somewhat slow.',
     notAvailable: 'Not Available',
 
     // Project Data
@@ -191,6 +195,8 @@ const translations = {
     project6Title: 'Sales Control System',
     project6Description: 'A sales control system developed to assist in managing a stores sales and inventory. The system allows for registering products, customers, and sales, in addition to generating reports and charts for performance analysis.',
     project7Title: 'Alita - 2D Game',
+    project8Title: 'IA Recibos — Financial SaaS Study',
+    project8Description: 'A financial application study in development, exploring generative AI to turn expense descriptions into structured, categorized transactions. The frontend uses Next.js 16, TypeScript and TanStack Query, with forms validated by React Hook Form and Zod. The planned architecture includes a NestJS 11 API integrated with Google Gemini, PostgreSQL with Drizzle ORM, and HMAC SHA-256 signed webhooks to explore Open Finance integrations.',
     project7Description: 'A 2D game built as a personal project, with logic and movement written in GML on GameMaker 2 and sprites created in Piskel. The project was made to practice game programming, collision, animation, and level design.',
 
     // Contact Section

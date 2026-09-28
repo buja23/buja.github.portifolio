@@ -9,6 +9,8 @@ export type Project = {
   technologies: string[];
   demoUrl: string | null;
   codeUrl: string | null;
+  codeLinks?: { label: string; url: string }[];
+  demoNoticeKey?: string;
   role: string;
   type: string;
 };

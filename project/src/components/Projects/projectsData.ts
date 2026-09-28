@@ -6,6 +6,7 @@ import editor from '../../assets/editor.png';
 import apae from '../../assets/apae.png';
 import bjtech from '../../assets/bjtech.png';
 import alita from '../../assets/alita.png';
+import iaRecibos from '../../assets/ia-recibos.svg';
 
 // `bjtech` is used as a temporary cover for the Madame e-commerce card, which
 // has no dedicated screenshot yet.
@@ -19,10 +20,29 @@ export const projects: Project[] = [
     image: barbereasy,
     imageAlt: 'Interface do BarberEasy',
     technologies: ['PHP', 'Laravel', 'Filament', 'React Native', 'Expo', 'PostgreSQL', 'DigitalOcean'],
-    demoUrl: 'https://www.barbereasy.com.br',
+    demoUrl: 'https://barbearia-api-xxvv.onrender.com/',
     codeUrl: null,
+    codeLinks: [
+      { label: 'Backend', url: 'https://github.com/buja23/barbearia-api' },
+      { label: 'Frontend', url: 'https://github.com/Diogordo08/barber-mobile/tree/main' },
+    ],
+    demoNoticeKey: 'project1DemoNotice',
     role: 'Desenvolvedor Full-Stack',
     type: 'SaaS Comercial',
+  },
+  {
+    id: 8,
+    featured: false,
+    badge: null,
+    titleKey: 'project8Title',
+    descriptionKey: 'project8Description',
+    image: iaRecibos,
+    imageAlt: 'Ilustração do IA Recibos: descrição de gasto convertida em transação financeira',
+    technologies: ['Next.js 16', 'TypeScript', 'TanStack Query', 'Tailwind CSS v4', 'React Hook Form', 'Zod'],
+    demoUrl: null,
+    codeUrl: 'https://github.com/buja23/IA_Recibos',
+    role: 'Desenvolvedor Full-Stack',
+    type: 'Projeto de Estudo',
   },
   {
     id: 2,
