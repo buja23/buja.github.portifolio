@@ -7,6 +7,7 @@ import apae from '../../assets/apae.png';
 import bjtech from '../../assets/bjtech.png';
 import alita from '../../assets/alita.png';
 import iaRecibos from '../../assets/ia-recibos.svg';
+import rollTimer from '../../assets/roll-timer.svg';
 
 // `bjtech` is used as a temporary cover for the Madame e-commerce card, which
 // has no dedicated screenshot yet.
@@ -35,6 +36,20 @@ export const projects: Project[] = [
     },
     role: 'Desenvolvedor Full-Stack',
     type: 'SaaS Comercial',
+  },
+  {
+    id: 9,
+    featured: false,
+    badge: null,
+    titleKey: 'project9Title',
+    descriptionKey: 'project9Description',
+    image: rollTimer,
+    imageAlt: 'Ilustração do Roll Timer com temporizador de luta e identidade visual em preto, vermelho e verde',
+    technologies: ['HTML5', 'CSS3', 'Vercel'],
+    demoUrl: 'https://roll-timer-site.vercel.app/',
+    codeUrl: 'https://github.com/buja23/roll-timer-site',
+    role: 'Desenvolvedor Front-End',
+    type: 'Landing Page',
   },
   {
     id: 8,
